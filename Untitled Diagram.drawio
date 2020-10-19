@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-10-18T20:53:39.061Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36" etag="R0_igHyNsZllCclEHV7Y" version="13.8.0" type="github">
+<mxfile host="app.diagrams.net" modified="2020-10-19T04:23:13.078Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36" etag="r7_tiwurjhWbzq3Q6waR" version="13.8.0" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="1102" dy="582" grid="1" gridSize="9" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1102" dy="525" grid="1" gridSize="9" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -155,7 +155,7 @@
           <mxGeometry x="260" y="325" width="20" height="20" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-45" value="Staff" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="80" y="440" width="160" height="120" as="geometry" />
+          <mxGeometry x="80" y="440" width="160" height="99" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-46" value="myTicketID :Ticket" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-45" vertex="1">
           <mxGeometry y="26" width="160" height="26" as="geometry" />
@@ -163,8 +163,8 @@
         <mxCell id="534QqyFiL1MUl5NV4_Nv-47" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-45" vertex="1">
           <mxGeometry y="52" width="160" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="534QqyFiL1MUl5NV4_Nv-48" value="createStaff()&#xa;editStaff()&#xa;buyTicket()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-45" vertex="1">
-          <mxGeometry y="60" width="160" height="60" as="geometry" />
+        <mxCell id="534QqyFiL1MUl5NV4_Nv-48" value="createStaff()&#xa;buyTicket()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-45" vertex="1">
+          <mxGeometry y="60" width="160" height="39" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-41" value="Manager" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="80" y="600" width="160" height="90" as="geometry" />
@@ -268,7 +268,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-29" value="Passenger" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="600" y="320" width="160" height="110" as="geometry" />
+          <mxGeometry x="600" y="320" width="160" height="99" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-30" value="myTicketID :Ticket" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-29" vertex="1">
           <mxGeometry y="26" width="160" height="26" as="geometry" />
@@ -276,8 +276,8 @@
         <mxCell id="534QqyFiL1MUl5NV4_Nv-31" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-29" vertex="1">
           <mxGeometry y="52" width="160" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="534QqyFiL1MUl5NV4_Nv-32" value="createPassenger()&#xa;editPassenger()&#xa;buyTicket()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-29" vertex="1">
-          <mxGeometry y="60" width="160" height="50" as="geometry" />
+        <mxCell id="534QqyFiL1MUl5NV4_Nv-32" value="createPassenger()&#xa;buyTicket()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-29" vertex="1">
+          <mxGeometry y="60" width="160" height="39" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-97" value="" style="html=1;endSize=12;endArrow=block;endFill=0;fontSize=10;entryX=0.994;entryY=0.246;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.55;exitY=1.02;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;exitPerimeter=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="534QqyFiL1MUl5NV4_Nv-32" target="534QqyFiL1MUl5NV4_Nv-34" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
