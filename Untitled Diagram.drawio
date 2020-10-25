@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-10-25T01:07:27.518Z" agent="5.0 (Windows)" etag="8zu_ya8bPHME5ikg-adg" version="13.8.1" type="github">
+<mxfile host="app.diagrams.net" modified="2020-10-25T01:15:09.002Z" agent="5.0 (Windows)" etag="hu88EoFjRQR7Osa-dggf" version="13.8.1" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1422" dy="803" grid="1" gridSize="9" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
@@ -17,21 +17,21 @@
           <mxGeometry y="88" width="130" height="29" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-5" value="FlightPath" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="470" width="171" height="145" as="geometry" />
+          <mxGeometry x="470" width="171" height="172" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-6" value="pathID :String&#xa;departureAirport :Airport(ref)&#xa;myDepartureAirportID:string&#xa;&#xa;arrivalAirport :Airport(ref)&#xa;myArrivalAirport:string&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-5" vertex="1">
-          <mxGeometry y="26" width="171" height="82" as="geometry" />
+          <mxGeometry y="26" width="171" height="109" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-7" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-5" vertex="1">
-          <mxGeometry y="108" width="171" height="8" as="geometry" />
+          <mxGeometry y="135" width="171" height="8" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-8" value="createFlightPath()&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-5" vertex="1">
-          <mxGeometry y="116" width="171" height="29" as="geometry" />
+          <mxGeometry y="143" width="171" height="29" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-9" value="Flight" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="234" width="180" height="195" as="geometry" />
         </mxCell>
-        <mxCell id="534QqyFiL1MUl5NV4_Nv-10" value="flightID :String&#xa;time :Time&#xa;date :Date&#xa;myPlane :Plane (ref)&#xa;myPlaneID: String&#xa;&#xa;myFlightPath: FlightPath(ref)&#xa;myFlightPathID: String&#xa;myFlightStatus :String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-9" vertex="1">
+        <mxCell id="534QqyFiL1MUl5NV4_Nv-10" value="flightID :String&#xa;time :Time&#xa;date :Date&#xa;myPlane :Plane (ref)&#xa;myPlaneID: String&#xa;myFlightPath: FlightPath(ref)&#xa;myFlightPathID: String&#xa;myFlightStatus :String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-9" vertex="1">
           <mxGeometry y="26" width="180" height="136" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-11" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-9" vertex="1">
@@ -41,16 +41,16 @@
           <mxGeometry y="170" width="180" height="25" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-13" value="Plane" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry width="160" height="140" as="geometry" />
+          <mxGeometry width="160" height="160" as="geometry" />
         </mxCell>
-        <mxCell id="534QqyFiL1MUl5NV4_Nv-14" value="planeID :String&#xa;type :String&#xa;size :String&#xa;numberOfSeats :integer&#xa;seatNumber :Seat(coll-ref)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-13" vertex="1">
-          <mxGeometry y="26" width="160" height="84" as="geometry" />
+        <mxCell id="534QqyFiL1MUl5NV4_Nv-14" value="planeID :String&#xa;type :String&#xa;size :String&#xa;numberOfSeats: Integer&#xa;mySeats :Seat (coll-ref)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-13" vertex="1">
+          <mxGeometry y="26" width="160" height="91" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-15" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-13" vertex="1">
-          <mxGeometry y="110" width="160" height="8" as="geometry" />
+          <mxGeometry y="117" width="160" height="11" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-16" value="createPlane(type: Integer)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-13" vertex="1">
-          <mxGeometry y="118" width="160" height="22" as="geometry" />
+          <mxGeometry y="128" width="160" height="32" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;fontSize=10;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="534QqyFiL1MUl5NV4_Nv-21" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -85,18 +85,6 @@
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-20" value="createSeats(numberOfSeat :Integer)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-17" vertex="1">
           <mxGeometry y="98" width="210" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="534QqyFiL1MUl5NV4_Nv-25" value="Baggage" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="600" y="160" width="160" height="99" as="geometry" />
-        </mxCell>
-        <mxCell id="534QqyFiL1MUl5NV4_Nv-26" value="baggageID :String&#xa;myWeight :Decimal[2,2]&#xa;myTicketID :Ticket(ref)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-25" vertex="1">
-          <mxGeometry y="26" width="160" height="44" as="geometry" />
-        </mxCell>
-        <mxCell id="534QqyFiL1MUl5NV4_Nv-27" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-25" vertex="1">
-          <mxGeometry y="70" width="160" height="8" as="geometry" />
-        </mxCell>
-        <mxCell id="534QqyFiL1MUl5NV4_Nv-28" value="createBaggage()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-25" vertex="1">
-          <mxGeometry y="78" width="160" height="21" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-57" value="1" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=1;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="534QqyFiL1MUl5NV4_Nv-6" target="534QqyFiL1MUl5NV4_Nv-1" edge="1">
           <mxGeometry x="-1" y="3" relative="1" as="geometry">
@@ -207,7 +195,7 @@
         <mxCell id="534QqyFiL1MUl5NV4_Nv-84" value="0..*" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontSize=10;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="257" y="381" width="27" height="18" as="geometry" />
         </mxCell>
-        <mxCell id="534QqyFiL1MUl5NV4_Nv-86" value="" style="endArrow=none;html=1;fontSize=10;edgeStyle=elbowEdgeStyle;" parent="WIyWlLk6GJQsqaUBKTNV-1" edge="1">
+        <mxCell id="534QqyFiL1MUl5NV4_Nv-86" value="" style="endArrow=none;html=1;fontSize=10;edgeStyle=elbowEdgeStyle;entryX=-0.031;entryY=0.25;entryDx=0;entryDy=0;entryPerimeter=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" edge="1" target="534QqyFiL1MUl5NV4_Nv-26">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="480" y="312" as="sourcePoint" />
             <mxPoint x="600" y="209" as="targetPoint" />
@@ -217,7 +205,7 @@
           <mxGeometry x="490" y="320" width="20" height="20" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-88" value="0..*" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontSize=10;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="567" y="181" width="27" height="18" as="geometry" />
+          <mxGeometry x="571.5" y="200" width="27" height="18" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-89" value="" style="edgeStyle=elbowEdgeStyle;html=1;endSize=12;endArrow=block;endFill=0;fontSize=10;exitX=1.006;exitY=0.017;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" target="534QqyFiL1MUl5NV4_Nv-34" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
@@ -307,6 +295,18 @@
         </mxCell>
         <mxCell id="xCnXscxY-VxHGIku6_TX-3" value="1" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;fontSize=10;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="621" y="720" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="534QqyFiL1MUl5NV4_Nv-25" value="Baggage" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="605" y="190" width="160" height="99" as="geometry" />
+        </mxCell>
+        <mxCell id="534QqyFiL1MUl5NV4_Nv-26" value="baggageID :String&#xa;myWeight :Decimal[2,2]&#xa;myTicketID :Ticket(ref)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-25" vertex="1">
+          <mxGeometry y="26" width="160" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="534QqyFiL1MUl5NV4_Nv-27" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-25" vertex="1">
+          <mxGeometry y="70" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="534QqyFiL1MUl5NV4_Nv-28" value="createBaggage()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-25" vertex="1">
+          <mxGeometry y="78" width="160" height="21" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
