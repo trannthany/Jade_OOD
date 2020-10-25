@@ -11,33 +11,36 @@ localeDefinitions
 libraryDefinitions
 typeHeaders
 	FlightBookingSchema subclassOf RootSchemaApp transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, highestOrdinal = 1, number = 2065;
-	FlightBookingApp subclassOf Object highestOrdinal = 11, number = 2134;
+	FlightBookingApp subclassOf Object highestSubId = 6, highestOrdinal = 17, number = 2134;
 	FlightBookingModelClasses subclassOf Object abstract, number = 2076;
-	Airport subclassOf FlightBookingModelClasses highestOrdinal = 3, number = 2077;
+	Airport subclassOf FlightBookingModelClasses highestOrdinal = 4, number = 2077;
 	Baggage subclassOf FlightBookingModelClasses highestOrdinal = 4, number = 2083;
-	Flight subclassOf FlightBookingModelClasses highestOrdinal = 11, number = 2079;
-	FlightPath subclassOf FlightBookingModelClasses highestOrdinal = 8, number = 2078;
+	Flight subclassOf FlightBookingModelClasses highestOrdinal = 12, number = 2079;
+	FlightPath subclassOf FlightBookingModelClasses highestOrdinal = 9, number = 2078;
 	Password subclassOf FlightBookingModelClasses highestOrdinal = 2, number = 2066;
 	Person subclassOf FlightBookingModelClasses abstract, highestOrdinal = 9, number = 2086;
 	Admin subclassOf Person highestOrdinal = 1, number = 2089;
 	Manager subclassOf Person highestOrdinal = 1, number = 2088;
 	Passenger subclassOf Person highestOrdinal = 3, number = 2087;
 	Staff subclassOf Person highestOrdinal = 1, number = 2149;
-	Plane subclassOf FlightBookingModelClasses highestSubId = 1, highestOrdinal = 9, number = 2115;
+	Plane subclassOf FlightBookingModelClasses highestSubId = 1, highestOrdinal = 10, number = 2115;
 	PlaneSize subclassOf Plane protected, final, highestOrdinal = 4, number = 2144;
 	Schedule subclassOf FlightBookingModelClasses highestSubId = 1, highestOrdinal = 1, number = 2110;
-	Seat subclassOf FlightBookingModelClasses highestOrdinal = 7, number = 2081;
-	Ticket subclassOf FlightBookingModelClasses highestSubId = 1, highestOrdinal = 12, number = 2082;
+	Seat subclassOf FlightBookingModelClasses highestOrdinal = 8, number = 2081;
+	Ticket subclassOf FlightBookingModelClasses highestSubId = 1, highestOrdinal = 13, number = 2082;
 	GFlightBookingSchema subclassOf RootSchemaGlobal transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2067;
 	SFlightBookingSchema subclassOf RootSchemaSession transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2068;
 	MkdAirports subclassOf MemberKeyDictionary loadFactor = 66, number = 2114;
 	MkdBaggages subclassOf MemberKeyDictionary loadFactor = 66, number = 2148;
 	MkdFlightPaths subclassOf MemberKeyDictionary loadFactor = 66, number = 2069;
 	MkdFlights subclassOf MemberKeyDictionary loadFactor = 66, number = 2116;
+	MkdManager subclassOf MemberKeyDictionary loadFactor = 66, number = 2154;
 	MkdManagers subclassOf MemberKeyDictionary loadFactor = 66, number = 2099;
+	MkdPassengers subclassOf MemberKeyDictionary loadFactor = 66, number = 2152;
 	MkdPeople subclassOf MemberKeyDictionary loadFactor = 66, number = 2151;
 	MkdPlanes subclassOf MemberKeyDictionary loadFactor = 66, number = 2147;
 	MkdSeats subclassOf MemberKeyDictionary loadFactor = 66, number = 2117;
+	MkdStaffs subclassOf MemberKeyDictionary loadFactor = 66, number = 2153;
 	MkdTickets subclassOf MemberKeyDictionary loadFactor = 66, number = 2070;
  
 interfaceDefs
@@ -46,10 +49,13 @@ membershipDefinitions
 	MkdBaggages of Baggage ;
 	MkdFlightPaths of FlightPath ;
 	MkdFlights of Flight ;
+	MkdManager of Manager ;
 	MkdManagers of Manager ;
+	MkdPassengers of Passenger ;
 	MkdPeople of Person ;
 	MkdPlanes of Plane ;
 	MkdSeats of Seat ;
+	MkdStaffs of Staff ;
 	MkdTickets of Ticket ;
  
 typeDefinitions
@@ -101,6 +107,19 @@ typeDefinitions
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:43:19.807;
 		ticketNum:                     Integer protected, number = 10, ordinal = 10;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:48:12.437;
+	referenceDefinitions
+		allAirports:                   MkdAirports   explicitInverse, readonly, subId = 1, number = 12, ordinal = 12;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:21:24:56.421;
+		allFlightPaths:                MkdFlightPaths   explicitInverse, readonly, subId = 2, number = 13, ordinal = 13;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:21:24:52.494;
+		allFlights:                    MkdFlights   explicitInverse, readonly, subId = 3, number = 14, ordinal = 14;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:21:24:48.050;
+		allPlanes:                     MkdPlanes   explicitInverse, readonly, subId = 4, number = 15, ordinal = 15;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:21:24:42.766;
+		allSeats:                      MkdSeats   explicitInverse, readonly, subId = 5, number = 16, ordinal = 16;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:21:24:37.753;
+		allTickets:                    MkdTickets   explicitInverse, readonly, subId = 6, number = 17, ordinal = 17;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:21:24:33.094;
  
 	jadeMethodDefinitions
 		nextAirportNum() updating, number = 1008;
@@ -140,6 +159,9 @@ typeDefinitions
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:10:53:19.882;
 		cityName:                      String[31] number = 3, ordinal = 3;
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:10:53:33.168;
+	referenceDefinitions
+		myFlightBookingApp:            FlightBookingApp   explicitEmbeddedInverse, protected, number = 4, ordinal = 4;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:21:24:56.421;
  
 	jadeMethodDefinitions
 		checkAirportInCity(
@@ -185,6 +207,8 @@ typeDefinitions
 		time:                          Time number = 2, ordinal = 2;
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:11:05.105;
 	referenceDefinitions
+		myFlightBookingApp:            FlightBookingApp   explicitEmbeddedInverse, protected, number = 9, ordinal = 12;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:21:24:48.050;
 		myFlightPath:                  FlightPath   explicitEmbeddedInverse, readonly, number = 5, ordinal = 7;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:14:17:49.672;
 		myPlane:                       Plane   explicitEmbeddedInverse, readonly, number = 6, ordinal = 6;
@@ -214,6 +238,8 @@ typeDefinitions
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:16:37:01.180;
 		myFlight:                      Flight   explicitEmbeddedInverse, protected, number = 4, ordinal = 6;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:14:17:49.672;
+		myFlightBookingApp:            FlightBookingApp   explicitEmbeddedInverse, protected, number = 5, ordinal = 9;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:21:24:52.494;
  
 	jadeMethodDefinitions
 		createFlightPath(
@@ -304,12 +330,12 @@ typeDefinitions
 	jadeMethodDefinitions
 		createPassenger(
 			pTitle: String; 
-			pFirstname: String; 
+			pFirstnames: String; 
 			pLastname: String; 
 			pDOB: Date; 
 			pIsStaff: Boolean; 
 			pPWD: Password) updating, number = 1001;
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:42:32.478;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:21:17:29.662;
 	)
 	Staff completeDefinition
 	(
@@ -352,6 +378,8 @@ typeDefinitions
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:01:49.523;
 		myFlight:                      Flight   explicitEmbeddedInverse, readonly, number = 5, ordinal = 6;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:15:10:04.734;
+		myFlightBookingApp:            FlightBookingApp   explicitEmbeddedInverse, protected, number = 6, ordinal = 10;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:21:24:42.766;
  
 	jadeMethodDefinitions
 		createPlane(type: Integer) updating, number = 1001;
@@ -389,6 +417,8 @@ typeDefinitions
 		seatNumber:                    String[31] readonly, number = 1, ordinal = 1;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:16:55:08.921;
 	referenceDefinitions
+		myFlightBookingApp:            FlightBookingApp   explicitEmbeddedInverse, protected, number = 5, ordinal = 8;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:21:24:37.769;
 		myPlane:                       Plane   explicitEmbeddedInverse, readonly, number = 3, ordinal = 3;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:01:49.523;
 		myTicket:                      Ticket   explicitEmbeddedInverse, readonly, number = 6, ordinal = 6;
@@ -415,6 +445,8 @@ typeDefinitions
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:31:56.257;
 		myFlight:                      Flight   explicitEmbeddedInverse, readonly, number = 6, ordinal = 10;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:29:10.388;
+		myFlightBookingApp:            FlightBookingApp   explicitEmbeddedInverse, protected, number = 9, ordinal = 13;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:21:24:33.094;
 		myPassenger:                   Passenger   explicitEmbeddedInverse, readonly, number = 5, ordinal = 9;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:26:08.440;
 		mySeat:                        Seat   explicitEmbeddedInverse, readonly, number = 4, ordinal = 8;
@@ -508,9 +540,17 @@ typeDefinitions
 	(
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:48:49.486;
 	)
+	MkdManager completeDefinition
+	(
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:21:27:59.082;
+	)
 	MkdManagers completeDefinition
 	(
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:07:32.255;
+	)
+	MkdPassengers completeDefinition
+	(
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:21:26:21.143;
 	)
 	MkdPeople completeDefinition
 	(
@@ -523,6 +563,10 @@ typeDefinitions
 	MkdSeats completeDefinition
 	(
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:50:20.749;
+	)
+	MkdStaffs completeDefinition
+	(
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:21:26:49.520;
 	)
 	MkdTickets completeDefinition
 	(
@@ -678,9 +722,17 @@ memberKeyDefinitions
 	(
 		flightID;
 	)
+	MkdManager completeDefinition
+	(
+		managerID;
+	)
 	MkdManagers completeDefinition
 	(
 		managerID;
+	)
+	MkdPassengers completeDefinition
+	(
+		passengerID;
 	)
 	MkdPeople completeDefinition
 	(
@@ -694,12 +746,22 @@ memberKeyDefinitions
 	(
 		seatNumber;
 	)
+	MkdStaffs completeDefinition
+	(
+		passengerID;
+	)
 	MkdTickets completeDefinition
 	(
 		ticketID;
 	)
  
 inverseDefinitions
+	allAirports of FlightBookingApp automatic peerOf myFlightBookingApp of Airport manual;
+	allFlightPaths of FlightBookingApp automatic peerOf myFlightBookingApp of FlightPath manual;
+	allFlights of FlightBookingApp automatic peerOf myFlightBookingApp of Flight manual;
+	allPlanes of FlightBookingApp automatic peerOf myFlightBookingApp of Plane manual;
+	allSeats of FlightBookingApp automatic peerOf myFlightBookingApp of Seat manual;
+	allTickets of FlightBookingApp automatic peerOf myFlightBookingApp of Ticket manual;
 	allMyBaggages of Ticket automatic peerOf myTicket of Baggage manual;
 	myFlightPath of Flight peerOf myFlight of FlightPath;
 	myPlane of Flight manual peerOf myFlight of Plane automatic;
@@ -747,6 +809,9 @@ FlightBookingSchemaDb
 		MkdBaggages in "FllightBookingSchema";
 		Staff in "FllightBookingSchema";
 		MkdPeople in "FllightBookingSchema";
+		MkdPassengers in "FllightBookingSchema";
+		MkdStaffs in "FllightBookingSchema";
+		MkdManager in "FllightBookingSchema";
 	)
 schemaViewDefinitions
 exportedPackageDefinitions
@@ -1100,18 +1165,19 @@ end;
 	jadeMethodSources
 createPassenger
 {
-createPassenger(pTitle, pFirstname, pLastname: String;pDOB :Date; pIsStaff
+createPassenger(pTitle, pFirstnames, pLastname: String;pDOB :Date; pIsStaff
 :Boolean; pPWD :Password) updating;
 
 vars
 begin
+	self.number := app.myFlightBookingApp.nextPassengerNum;
 	self.title := pTitle;
-	self.firstNames := pFirstname;
+	self.firstNames := pFirstnames;
 	self.lastName := pLastname;
 	self.dateOfBirth := pDOB;
 	self.isStaff:= pIsStaff;
 	self.myPassword := pPWD;
-	self.passengerID := "ID";
+	self.passengerID := "ID" & self.number.String;
 end;
 
 }
