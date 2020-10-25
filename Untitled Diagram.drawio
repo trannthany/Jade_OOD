@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-10-25T04:26:17.979Z" agent="5.0 (Windows)" etag="9MhfwKbQ91N9BmcNmN7I" version="13.8.1" type="github">
+<mxfile host="app.diagrams.net" modified="2020-10-25T05:38:06.836Z" agent="5.0 (Windows)" etag="3EJ88q5gHV_ksSGGlzVh" version="13.8.1" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1422" dy="803" grid="1" gridSize="9" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
@@ -63,16 +63,16 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-21" value="Ticket" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="290" y="240" width="190" height="160" as="geometry" />
+          <mxGeometry x="290" y="240" width="190" height="180" as="geometry" />
         </mxCell>
-        <mxCell id="534QqyFiL1MUl5NV4_Nv-22" value="ticketID :String&#xa;myPassenger :Passenger(ref)&#xa;myFlightID :Flight(ref)&#xa;mySeat :Seat(ref)&#xa;myBaggage :Baggage(coll-ref)&#xa;paymentStatus :Bool&#xa;price :Currency" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-21" vertex="1">
+        <mxCell id="534QqyFiL1MUl5NV4_Nv-22" value="ticketID :String&#xa;myPassenger :Passenger(ref)&#xa;myFlight :Flight(ref)&#xa;mySeat :Seat(ref)&#xa;allMyBaggages :Baggage(coll-ref)&#xa;paymentStatus :Bool&#xa;price :Currency" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-21" vertex="1">
           <mxGeometry y="26" width="190" height="104" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-23" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-21" vertex="1">
           <mxGeometry y="130" width="190" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="534QqyFiL1MUl5NV4_Nv-24" value="isSold()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-21" vertex="1">
-          <mxGeometry y="138" width="190" height="22" as="geometry" />
+        <mxCell id="534QqyFiL1MUl5NV4_Nv-24" value="createTicket()&#xa;isSold()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-21" vertex="1">
+          <mxGeometry y="138" width="190" height="42" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-17" value="Seat" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry y="200" width="210" height="151" as="geometry" />
@@ -145,16 +145,16 @@
           <mxGeometry x="260" y="325" width="20" height="20" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-45" value="Staff" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="80" y="440" width="160" height="99" as="geometry" />
+          <mxGeometry x="80" y="440" width="160" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="534QqyFiL1MUl5NV4_Nv-46" value="myTicketID :Ticket" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-45" vertex="1">
-          <mxGeometry y="26" width="160" height="26" as="geometry" />
+        <mxCell id="534QqyFiL1MUl5NV4_Nv-46" value="myTicketID :Ticket&#xa;isStaff: (true)&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-45" vertex="1">
+          <mxGeometry y="26" width="160" height="37" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-47" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-45" vertex="1">
-          <mxGeometry y="52" width="160" height="8" as="geometry" />
+          <mxGeometry y="63" width="160" height="8" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-48" value="createStaff()&#xa;buyTicket()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-45" vertex="1">
-          <mxGeometry y="60" width="160" height="39" as="geometry" />
+          <mxGeometry y="71" width="160" height="39" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-41" value="Manager" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="80" y="600" width="160" height="90" as="geometry" />
@@ -258,16 +258,16 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-29" value="Passenger" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="600" y="320" width="160" height="99" as="geometry" />
+          <mxGeometry x="600" y="320" width="160" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="534QqyFiL1MUl5NV4_Nv-30" value="myTicket :Ticket" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-29" vertex="1">
-          <mxGeometry y="26" width="160" height="26" as="geometry" />
+        <mxCell id="534QqyFiL1MUl5NV4_Nv-30" value="myTicket :Ticket&#xa;isStaff: (false)&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-29" vertex="1">
+          <mxGeometry y="26" width="160" height="37" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-31" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-29" vertex="1">
-          <mxGeometry y="52" width="160" height="8" as="geometry" />
+          <mxGeometry y="63" width="160" height="8" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-32" value="createPassenger()&#xa;buyTicket()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-29" vertex="1">
-          <mxGeometry y="60" width="160" height="39" as="geometry" />
+          <mxGeometry y="71" width="160" height="39" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-97" value="" style="html=1;endSize=12;endArrow=block;endFill=0;fontSize=10;entryX=0.994;entryY=0.246;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.55;exitY=1.02;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;exitPerimeter=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="534QqyFiL1MUl5NV4_Nv-32" target="534QqyFiL1MUl5NV4_Nv-34" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
@@ -299,7 +299,7 @@
         <mxCell id="534QqyFiL1MUl5NV4_Nv-25" value="Baggage" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="605" y="190" width="160" height="99" as="geometry" />
         </mxCell>
-        <mxCell id="534QqyFiL1MUl5NV4_Nv-26" value="baggageID :String&#xa;myWeight :Decimal[2,2]&#xa;myTicketID :Ticket(ref)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-25" vertex="1">
+        <mxCell id="534QqyFiL1MUl5NV4_Nv-26" value="baggageID :String&#xa;myWeight :Decimal[2,2]&#xa;myTicket :Ticket(ref)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-25" vertex="1">
           <mxGeometry y="26" width="160" height="44" as="geometry" />
         </mxCell>
         <mxCell id="534QqyFiL1MUl5NV4_Nv-27" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="534QqyFiL1MUl5NV4_Nv-25" vertex="1">
