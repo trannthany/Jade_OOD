@@ -1,5 +1,5 @@
-/* JADE COMMAND FILE NAME \\sit.inet\sit\home\Students\2019000224\IT606_OOB_JADE\FlightBookingDesign2\FlightBookingSchema.jcf */
-jadeVersionNumber "7.1.09";
+/* JADE COMMAND FILE NAME C:\Users\User\Documents\IT606\Project\FlightBookingSchema.jcf */
+jadeVersionNumber "7.1.03";
 schemaDefinition
 FlightBookingSchema subschemaOf RootSchema completeDefinition, patchVersioningEnabled = false;
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:04:17:25:30.738;
@@ -10,31 +10,47 @@ localeDefinitions
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:04:17:25:30.691;
 libraryDefinitions
 typeHeaders
-	FlightBookingSchema subclassOf RootSchemaApp transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2048;
+	FlightBookingSchema subclassOf RootSchemaApp transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, highestOrdinal = 1, number = 2065;
+	FlightBookingApp subclassOf Object highestOrdinal = 1, number = 2134;
 	FlightBookingModelClasses subclassOf Object abstract, number = 2076;
 	Airport subclassOf FlightBookingModelClasses highestOrdinal = 3, number = 2077;
-	Baggage subclassOf FlightBookingModelClasses highestOrdinal = 2, number = 2083;
-	Flight subclassOf FlightBookingModelClasses highestOrdinal = 4, number = 2079;
-	FlightPath subclassOf FlightBookingModelClasses highestOrdinal = 3, number = 2078;
-	Person subclassOf FlightBookingModelClasses abstract, highestOrdinal = 5, number = 2086;
+	Baggage subclassOf FlightBookingModelClasses highestOrdinal = 3, number = 2083;
+	Flight subclassOf FlightBookingModelClasses highestOrdinal = 11, number = 2079;
+	FlightPath subclassOf FlightBookingModelClasses highestOrdinal = 8, number = 2078;
+	Password subclassOf FlightBookingModelClasses highestOrdinal = 2, number = 2066;
+	Person subclassOf FlightBookingModelClasses abstract, highestOrdinal = 9, number = 2086;
 	Admin subclassOf Person highestOrdinal = 1, number = 2089;
 	Manager subclassOf Person highestOrdinal = 1, number = 2088;
-	Passenger subclassOf Person highestOrdinal = 1, number = 2087;
-	Plane subclassOf FlightBookingModelClasses highestSubId = 1, highestOrdinal = 5, number = 2115;
+	Passenger subclassOf Person highestOrdinal = 2, number = 2087;
+	Staff subclassOf Person highestOrdinal = 1, number = 2149;
+	Plane subclassOf FlightBookingModelClasses highestSubId = 1, highestOrdinal = 9, number = 2115;
+	PlaneSize subclassOf Plane protected, final, highestOrdinal = 4, number = 2144;
 	Schedule subclassOf FlightBookingModelClasses highestSubId = 1, highestOrdinal = 1, number = 2110;
-	Seat subclassOf FlightBookingModelClasses highestOrdinal = 3, number = 2081;
-	Ticket subclassOf FlightBookingModelClasses highestOrdinal = 2, number = 2082;
-	GFlightBookingSchema subclassOf RootSchemaGlobal transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2049;
-	SFlightBookingSchema subclassOf RootSchemaSession transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2050;
-	MkdAirport subclassOf MemberKeyDictionary loadFactor = 66, number = 2114;
+	Seat subclassOf FlightBookingModelClasses highestOrdinal = 7, number = 2081;
+	Ticket subclassOf FlightBookingModelClasses highestSubId = 1, highestOrdinal = 12, number = 2082;
+	GFlightBookingSchema subclassOf RootSchemaGlobal transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2067;
+	SFlightBookingSchema subclassOf RootSchemaSession transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2068;
+	MkdAirports subclassOf MemberKeyDictionary loadFactor = 66, number = 2114;
+	MkdBaggages subclassOf MemberKeyDictionary loadFactor = 66, number = 2148;
+	MkdFlightPaths subclassOf MemberKeyDictionary loadFactor = 66, number = 2069;
 	MkdFlights subclassOf MemberKeyDictionary loadFactor = 66, number = 2116;
+	MkdManagers subclassOf MemberKeyDictionary loadFactor = 66, number = 2099;
+	MkdPeople subclassOf MemberKeyDictionary loadFactor = 66, number = 2151;
+	MkdPlanes subclassOf MemberKeyDictionary loadFactor = 66, number = 2147;
 	MkdSeats subclassOf MemberKeyDictionary loadFactor = 66, number = 2117;
+	MkdTickets subclassOf MemberKeyDictionary loadFactor = 66, number = 2070;
  
 interfaceDefs
 membershipDefinitions
-	MkdAirport of Airport ;
+	MkdAirports of Airport ;
+	MkdBaggages of Baggage ;
+	MkdFlightPaths of FlightPath ;
 	MkdFlights of Flight ;
+	MkdManagers of Manager ;
+	MkdPeople of Person ;
+	MkdPlanes of Plane ;
 	MkdSeats of Seat ;
+	MkdTickets of Ticket ;
  
 typeDefinitions
 	Object completeDefinition
@@ -49,6 +65,26 @@ typeDefinitions
 	FlightBookingSchema completeDefinition
 	(
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:04:17:25:30.723;
+	referenceDefinitions
+		myFlightBookingApp:            FlightBookingApp  readonly, number = 1, ordinal = 1;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:52:12.017;
+ 
+	jadeMethodDefinitions
+		genericExceptionHandler(exObj: Exception): Integer number = 1001;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:17:41:51.590;
+		initialize() updating, number = 1002;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:54:01.587;
+	)
+	FlightBookingApp completeDefinition
+	(
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:15:56:08.675;
+	attributeDefinitions
+		flightNum:                     Integer protected, number = 1, ordinal = 1;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:49:45.549;
+ 
+	jadeMethodDefinitions
+		nextFlightNum(): Integer updating, number = 1001;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:50:58.938;
 	)
 	FlightBookingModelClasses completeDefinition
 	(
@@ -56,14 +92,7 @@ typeDefinitions
 	)
 	Airport completeDefinition
 	(
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:10:20:55.100;
-	constantDefinitions
-		AUCKLAND_AIRPORT:              String = "AKL" number = 1001;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:10:55:52.828;
-		INVERCARGILL_AIRPORT:          String = "IVC" number = 1002;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:10:55:03.052;
-		WELLINGTON_AIRPORT:            String = "WLG" number = 1003;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:10:55:28.558;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:16:50:25.924;
 	attributeDefinitions
 		airportCode:                   String[4] number = 1, ordinal = 1;
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:10:53:15.156;
@@ -71,6 +100,16 @@ typeDefinitions
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:10:53:19.882;
 		cityName:                      String[31] number = 3, ordinal = 3;
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:10:53:33.168;
+ 
+	jadeMethodDefinitions
+		checkAirportInCity(
+			pCityName: String; 
+			pCityCode: String output): Boolean protected, number = 1003;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:17:59:32.260;
+		createAirport(pCityName: String) updating, number = 1001;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:17:49:06.785;
+		createAirportHandler(exObj: Exception): Integer number = 1002;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:17:47:30.096;
 	)
 	Baggage completeDefinition
 	(
@@ -78,21 +117,15 @@ typeDefinitions
 	attributeDefinitions
 		baggageID:                     String[31] number = 1, ordinal = 1;
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:08:31.530;
-		myWeight:                      Decimal[2,2] number = 2, ordinal = 2;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:10:18.620;
+		myWeight:                      Decimal[5] number = 2, ordinal = 2;
+		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:14:19:46:57.353;
+	referenceDefinitions
+		myTicket:                      Ticket   explicitEmbeddedInverse, protected, number = 3, ordinal = 3;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:31:56.257;
 	)
 	Flight completeDefinition
 	(
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:10:21:54.683;
-	constantDefinitions
-		DELAYED:                       String = "Delayed" number = 1001;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:13:22.066;
-		DEPARTED:                      String = "Departed" number = 1002;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:13:45.883;
-		LANDED:                        String = "Landed" number = 1003;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:14:03.468;
-		SCHEDULED:                     String = "Scheduled" number = 1004;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:14:22.714;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:03:37.677;
 	attributeDefinitions
 		date:                          Date number = 3, ordinal = 3;
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:11:27.199;
@@ -100,35 +133,80 @@ typeDefinitions
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:10:54.189;
 		myFlightStatus:                String[31] number = 4, ordinal = 4;
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:12:24.177;
+		number:                        Integer readonly, number = 8, ordinal = 11;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:56:53.925;
 		time:                          Time number = 2, ordinal = 2;
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:11:05.105;
+	referenceDefinitions
+		myFlightPath:                  FlightPath   explicitEmbeddedInverse, readonly, number = 5, ordinal = 7;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:14:17:49.672;
+		myPlane:                       Plane   explicitEmbeddedInverse, readonly, number = 6, ordinal = 6;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:15:10:04.734;
+		myTicket:                      Ticket   explicitEmbeddedInverse, readonly, number = 7, ordinal = 10;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:29:10.388;
+ 
+	jadeMethodDefinitions
+		createFlight(
+			pFlightPath: FlightPath; 
+			pPlane: Plane; 
+			pDate: Date; 
+			pTime: Time; 
+			pStatus: String) updating, number = 1001;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:59:32.034;
 	)
 	FlightPath completeDefinition
 	(
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:10:21:29.450;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:03:48.587;
 	attributeDefinitions
 		pathID:                        String[31] number = 1, ordinal = 1;
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:14:49.281;
 	referenceDefinitions
-		myArrivalAirport:              Airport  number = 3, ordinal = 3;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:16:12.048;
-		myDepartureAirport:            Airport  number = 2, ordinal = 2;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:15:27.897;
+		arrivalAirport:                Airport  readonly, number = 2, ordinal = 4;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:16:36:30.150;
+		departureAirport:              Airport  readonly, number = 3, ordinal = 5;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:16:37:01.180;
+		myFlight:                      Flight   explicitEmbeddedInverse, protected, number = 4, ordinal = 6;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:14:17:49.672;
+ 
+	jadeMethodDefinitions
+		createFlightPath(
+			pDepartureAirport: Airport; 
+			pArrivalAirport: Airport) updating, number = 1001;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:05:04.617;
+	)
+	Password completeDefinition
+	(
+		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:06:21:00:17.630;
+	attributeDefinitions
+		password:                      String[31] number = 1, ordinal = 1;
+		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:15:19:25:02.577;
+	referenceDefinitions
+		myPerson:                      Person   explicitEmbeddedInverse, readonly, number = 2, ordinal = 2;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:27:42.529;
+ 
+	jadeMethodDefinitions
+		createPassword(pwd: String): Boolean updating, number = 1001;
+		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:06:21:17:31.615;
 	)
 	Person completeDefinition
 	(
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:10:22:49.588;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:51:18.708;
 	attributeDefinitions
-		dateOfBirth:                   Date number = 4, ordinal = 4;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:10:59:44.139;
-		firstName:                     String[31] number = 2, ordinal = 2;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:10:58:58.417;
-		isStaff:                       Boolean number = 5, ordinal = 5;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:47:39.242;
-		lastName:                      String[31] number = 3, ordinal = 3;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:10:59:04.522;
-		title:                         String[11] number = 1, ordinal = 1;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:10:58:46.914;
+		dateOfBirth:                   Date readonly, number = 4, ordinal = 4;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:27:06.189;
+		firstNames:                    String[31] readonly, number = 2, ordinal = 2;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:37:26.304;
+		isStaff:                       Boolean readonly, number = 5, ordinal = 5;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:27:01.459;
+		lastName:                      String[31] readonly, number = 3, ordinal = 3;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:27:14.629;
+		passengerID:                   String[31] readonly, number = 7, ordinal = 8;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:39:54.813;
+		title:                         String[11] readonly, number = 1, ordinal = 1;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:27:51.629;
+	referenceDefinitions
+		myPassword:                    Password   explicitEmbeddedInverse, readonly, number = 6, ordinal = 6;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:27:42.529;
 	)
 	Admin completeDefinition
 	(
@@ -136,6 +214,17 @@ typeDefinitions
 	attributeDefinitions
 		adminID:                       String[31] number = 1, ordinal = 1;
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:17:46.072;
+ 
+	jadeMethodDefinitions
+		setPropertiesOnCreate(
+			pTitle: String; 
+			pFirstname: String; 
+			pLastname: String; 
+			pDOB: Date; 
+			pIsStaff: Boolean; 
+			pPWD: Password; 
+			pAID: String) updating, number = 1001;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:37:26.284;
 	)
 	Manager completeDefinition
 	(
@@ -143,17 +232,45 @@ typeDefinitions
 	attributeDefinitions
 		managerID:                     String[31] number = 1, ordinal = 1;
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:17:35.295;
+ 
+	jadeMethodDefinitions
+		setPropertiesOnCreate(
+			pTitle: String; 
+			pFirstname: String; 
+			pLastname: String; 
+			pDOB: Date; 
+			pIsStaff: Boolean; 
+			pPWD: Password; 
+			pMID: String) updating, number = 1001;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:37:26.284;
 	)
 	Passenger completeDefinition
 	(
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:10:23:01.901;
-	attributeDefinitions
-		passengerID:                   String[31] number = 1, ordinal = 1;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:17:21.311;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:39:18.283;
+	referenceDefinitions
+		myTicket:                      Ticket   explicitEmbeddedInverse, readonly, number = 2, ordinal = 2;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:26:08.440;
+ 
+	jadeMethodDefinitions
+		setPropertiesOnCreate(
+			pTitle: String; 
+			pFirstname: String; 
+			pLastname: String; 
+			pDOB: Date; 
+			pIsStaff: Boolean; 
+			pPWD: Password) updating, number = 1001;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:43:15.181;
+	)
+	Staff completeDefinition
+	(
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:36:25.805;
+	referenceDefinitions
+		myTicket:                      Ticket   explicitEmbeddedInverse, readonly, number = 1, ordinal = 1;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:36:55.494;
 	)
 	Plane completeDefinition
 	(
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:28:16.344;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:10:44.264;
 	constantDefinitions
 		TYPE_1_AIRBUS:                 String = "Airbus A320-200" number = 1001;
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:32:36.184;
@@ -172,21 +289,37 @@ typeDefinitions
 		TYPE_8_BOMBARDIER:             String = "Bombardier Q300" number = 1008;
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:36:45.141;
 	attributeDefinitions
-		numberOfSeat:                  Integer number = 2, ordinal = 2;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:28:43.233;
-		planeID:                       String[31] number = 1, ordinal = 1;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:28:29.589;
-		size:                          String[31] number = 4, ordinal = 4;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:29:22.738;
-		type:                          String[31] number = 3, ordinal = 3;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:29:10.462;
+		numberOfSeat:                  Integer readonly, number = 2, ordinal = 2;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:15:34:06.316;
+		planeID:                       String[31] readonly, number = 1, ordinal = 9;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:06:27.846;
+		size:                          String[31] readonly, number = 4, ordinal = 4;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:15:34:17.146;
+		type:                          String[31] readonly, number = 3, ordinal = 3;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:15:34:22.561;
 	referenceDefinitions
-		allMySeatNumbers:              MkdSeats   explicitInverse, subId = 1, number = 5, ordinal = 5;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:52:56.329;
+		allMySeats:                    MkdSeats   explicitInverse, readonly, subId = 1, number = 7, ordinal = 8;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:01:49.523;
+		myFlight:                      Flight   explicitEmbeddedInverse, readonly, number = 5, ordinal = 6;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:15:10:04.734;
  
 	jadeMethodDefinitions
 		createPlane(type: Integer) updating, number = 1001;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:37:36.036;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:10:51.373;
+	)
+	PlaneSize completeDefinition
+	(
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:15:05:15.506;
+	attributeDefinitions
+		height:                        Decimal[3,2] readonly, number = 3, ordinal = 3;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:15:07:09.126;
+		length:                        Decimal[3,2] readonly, number = 1, ordinal = 1;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:15:07:21.896;
+		wingSpan:                      Decimal[3,2] readonly, number = 2, ordinal = 2;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:15:06:59.966;
+	referenceDefinitions
+		myPlane:                       Plane  readonly, number = 4, ordinal = 4;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:15:32:39.377;
 	)
 	Schedule completeDefinition
 	(
@@ -197,24 +330,51 @@ typeDefinitions
 	)
 	Seat completeDefinition
 	(
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:10:22:16.987;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:11:00.503;
 	attributeDefinitions
 		isOccupied:                    Boolean number = 2, ordinal = 2;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:42:01.300;
-		seatNumber:                    String[5] number = 1, ordinal = 1;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:41:48.903;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:18:02:54.668;
+		nextNumber:                    Integer readonly, number = 4, ordinal = 4;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:15:49:47.009;
+		seatNumber:                    String[31] readonly, number = 1, ordinal = 1;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:16:55:08.921;
 	referenceDefinitions
-		myPlane:                       Plane   explicitEmbeddedInverse, number = 3, ordinal = 3;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:52:56.344;
+		myPlane:                       Plane   explicitEmbeddedInverse, readonly, number = 3, ordinal = 3;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:01:49.523;
+		myTicket:                      Ticket   explicitEmbeddedInverse, readonly, number = 6, ordinal = 6;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:16:58:47.844;
+ 
+	jadeMethodDefinitions
+		creatSeat(pPlane: Plane) updating, number = 1001;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:23:10.313;
+		nextSeatNumber(): Integer updating, protected, number = 1002;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:23:42.448;
 	)
 	Ticket completeDefinition
 	(
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:10:22:30.957;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:16:57:19.090;
 	attributeDefinitions
-		paymentStatus:                 Boolean number = 2, ordinal = 2;
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:46:14.273;
+		paymentStatus:                 Boolean readonly, number = 2, ordinal = 2;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:33:06.316;
+		price:                         Decimal[12] readonly, number = 3, ordinal = 3;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:33:02.906;
 		ticketID:                      String[31] number = 1, ordinal = 1;
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:42:44.831;
+	referenceDefinitions
+		allMyBaggages:                 MkdBaggages   explicitInverse, readonly, subId = 1, number = 7, ordinal = 11;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:31:56.257;
+		myFlight:                      Flight   explicitEmbeddedInverse, readonly, number = 6, ordinal = 10;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:29:10.388;
+		myPassenger:                   Passenger   explicitEmbeddedInverse, readonly, number = 5, ordinal = 9;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:26:08.440;
+		mySeat:                        Seat   explicitEmbeddedInverse, readonly, number = 4, ordinal = 8;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:16:58:47.844;
+		myStaffAsPassenger:            Staff   explicitEmbeddedInverse, readonly, number = 8, ordinal = 12;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:36:55.494;
+ 
+	jadeMethodDefinitions
+		isSold() updating, number = 1001;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:18:03:02.272;
 	)
 	Global completeDefinition
 	(
@@ -225,6 +385,33 @@ typeDefinitions
 	GFlightBookingSchema completeDefinition
 	(
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:04:17:25:30.723;
+	)
+	JadeScript completeDefinition
+	(
+ 
+	jadeMethodDefinitions
+		addAPFP() number = 1004;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:07:42.425;
+		addAdmin() number = 1001;
+		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:06:22:34:13.500;
+		addFlights() number = 1005;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:07:38;
+		addKP() number = 1010;
+		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:19:14:34:17.881;
+		addManager() number = 1002;
+		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:06:22:41:06.231;
+		addPassenger() number = 1003;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:43:10.302;
+		addPlane() number = 1006;
+		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:14:19:21:33.965;
+		addSeats() number = 1007;
+		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:14:19:26:53.854;
+		addTicket() number = 1009;
+		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:14:19:45:46.274;
+		fulfillData() number = 1011;
+		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:19:17:33:22.587;
+		modifyFlight() number = 1008;
+		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:14:19:30:46.801;
 	)
 	WebSession completeDefinition
 	(
@@ -255,41 +442,229 @@ typeDefinitions
 	MemberKeyDictionary completeDefinition
 	(
 	)
-	MkdAirport completeDefinition
+	MkdAirports completeDefinition
 	(
-		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:06:50.519;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:07:42.425;
+	)
+	MkdBaggages completeDefinition
+	(
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:30:43.532;
+	)
+	MkdFlightPaths completeDefinition
+	(
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:07:37.995;
 	)
 	MkdFlights completeDefinition
 	(
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:48:49.486;
 	)
+	MkdManagers completeDefinition
+	(
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:07:32.255;
+	)
+	MkdPeople completeDefinition
+	(
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:40:35.593;
+	)
+	MkdPlanes completeDefinition
+	(
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:07:07.105;
+	)
 	MkdSeats completeDefinition
 	(
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:50:20.749;
 	)
+	MkdTickets completeDefinition
+	(
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:07:58.075;
+	)
+	Integer completeDefinition
+	(
+ 
+	jadeMethodDefinitions
+		decrementByOne() updating, number = 1002;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:16:05:06.108;
+		incrementByOne() updating, number = 1001;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:15:54:49.950;
+	)
+ 
+	String completeDefinition
+	(
+	constantDefinitions
+		ARRIVED_STATUS:                String = "ARRIVED";
+	documentationText
+`Flight has arrived at its destination gate.`
+
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:54:41.731;
+		AUCKLAND_AIRPORT:              String = "AKL";
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:15:59:17.785;
+		AUCKLAND_CITY:                 String = "AUCKLAND";
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:16:55:20.479;
+		CANCELLED_STATUS:              String = "CANCELLED";
+	documentationText
+` Flight has been cancelled.`
+
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:54:58.006;
+		DELAYED_STATUS:                String = "DELAYED";
+	documentationText
+`Flight will depart more than 15 minutes after its scheduled departure time.`
+
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:55:13.285;
+		DEPARTED_STATUS:               String = "DEPARTED";
+	documentationText
+`Flight has left the departure gate but may not be airborne yet.`
+
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:55:26.784;
+		DIVERTED_STATUS:               String = "DIVERTED";
+	documentationText
+`Flight has been diverted from its scheduled destination to a different location.`
+
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:55:41.329;
+		EXPECTED_STATUS:               String = "EXPECTED";
+	documentationText
+`FlightView data indicates flight is expected to arrive at arrival airport. An estimated arrival time may be available.`
+
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:55:54.043;
+		INVERCARGILL_AIRPORT:          String = "IVC";
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:15:59:03.092;
+		INVERCARGILL_CITY:             String = "INVERCARGILL";
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:16:55:44.102;
+		IN_AIR_STATUS:                 String = "IN AIR";
+	documentationText
+`Flight is airborne. Takeoff time is actual takeoff or "wheels up" time. The arrival time is estimated. Real-time map is available.`
+
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:56:20.036;
+		LANDED_STATUS:                 String = "LANDED";
+	documentationText
+`Flight has landed. The landing time is actual touchdown or "wheels down."`
+
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:56:34.469;
+		NO_RECENT_INFO_CALL_AIRLINE:   String = "NO RECENT INFO - CALL AIRLINE";
+	documentationText
+`The real-time status of the flight is unavailable. It may have been delayed, cancelled, or the real-time status may not yet be available if the flight is international. Contact the airline for more information. `
+
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:53:54.201;
+		NO_TAKEOFF_INFO_CALL_AIRLINE:  String = "NO TAKEOFF INFO - CALL AIRLINE";
+	documentationText
+`The real-time takeoff status of the flight is unavailable. It may have been delayed, cancelled, or the real-time status may not yet be available if the flight is international. Contact the airline for more information. `
+
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:54:12.705;
+		PAST_FLIGHT_STATUS:            String = "PAST FLIGHT";
+	documentationText
+`Flight was scheduled to operate sometime in the past.`
+
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:57:02.250;
+		PLANE_TAYPE_1:                 Integer = 1;
+	documentationText
+`Airbus A321neo`
+
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:14:58:24.803;
+		PLANE_TYPE_2:                  Integer = 2;
+	documentationText
+`Airbus A320neo`
+
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:14:58:45.891;
+		PLANE_TYPE_3:                  Integer = 3;
+	documentationText
+`ATR 72 Twin-Engine Turboprop`
+
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:14:53:34.423;
+		PLANE_TYPE_4:                  Integer = 4;
+	documentationText
+`Boeing 777-300`
+
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:14:59:48.664;
+		PLANE_TYPE_5:                  Integer = 5;
+	documentationText
+`Boeing 777-200`
+
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:14:56:13.187;
+		PLANE_TYPE_6:                  Integer = 6;
+	documentationText
+`Boeing 787-9`
+
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:14:56:45.322;
+		PLANE_TYPE_7:                  Integer = 7;
+	documentationText
+`Boeing 787-9 V2`
+
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:14:59:29.612;
+		PLANE_TYPE_8:                  Integer = 8;
+	documentationText
+`Bombardier Q300`
+
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:14:57:51.489;
+		RECOVERY_STATUS:               String = "RECOVERY";
+	documentationText
+`Flight had departed the diverted location and enroute or landed at the scheduled destination.`
+
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:57:21.503;
+		SCHEDULED_STATUS:              String = "SCHEDULED";
+	documentationText
+`Flight is not airborne. Departure and arrival times are according to airline's schedule.`
+
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:57:39.436;
+		WELLINGTON_AIRPORT:            String = "WLG";
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:15:58:35.901;
+		WELLINGTON_CITY:               String = "WELLINGTON";
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:16:56:04.702;
+	)
+ 
  
 memberKeyDefinitions
-	MkdAirport completeDefinition
+	MkdAirports completeDefinition
 	(
 		airportCode;
+	)
+	MkdBaggages completeDefinition
+	(
+		baggageID;
+	)
+	MkdFlightPaths completeDefinition
+	(
+		pathID;
 	)
 	MkdFlights completeDefinition
 	(
 		flightID;
 	)
+	MkdManagers completeDefinition
+	(
+		managerID;
+	)
+	MkdPeople completeDefinition
+	(
+		passengerID;
+	)
+	MkdPlanes completeDefinition
+	(
+		planeID;
+	)
 	MkdSeats completeDefinition
 	(
 		seatNumber;
 	)
+	MkdTickets completeDefinition
+	(
+		ticketID;
+	)
  
 inverseDefinitions
-	allMySeatNumbers of Plane automatic peerOf myPlane of Seat manual;
+	allMyBaggages of Ticket automatic peerOf myTicket of Baggage manual;
+	myFlightPath of Flight peerOf myFlight of FlightPath;
+	myPlane of Flight manual peerOf myFlight of Plane automatic;
+	myFlight of Ticket manual peerOf myTicket of Flight automatic;
+	myPassword of Person manual peerOf myPerson of Password automatic;
+	myPassenger of Ticket automatic peerOf myTicket of Passenger manual;
+	myStaffAsPassenger of Ticket automatic peerOf myTicket of Staff manual;
+	allMySeats of Plane peerOf myPlane of Seat;
+	myTicket of Seat automatic peerOf mySeat of Ticket manual;
 databaseDefinitions
 FlightBookingSchemaDb
 	(
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:04:17:25:30.738;
 	databaseFileDefinitions
-		"FllightBookingSchema" number=52;
+		"FllightBookingSchema" number=54;
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:04:17:25:30.738;
 	defaultFileDefinition "FllightBookingSchema";
 	classMapDefinitions
@@ -308,14 +683,264 @@ FlightBookingSchemaDb
 		Manager in "FllightBookingSchema";
 		Admin in "FllightBookingSchema";
 		Schedule in "FllightBookingSchema";
-		MkdAirport in "FllightBookingSchema";
+		MkdAirports in "FllightBookingSchema";
 		Plane in "FllightBookingSchema";
 		MkdFlights in "FllightBookingSchema";
 		MkdSeats in "FllightBookingSchema";
+		Password in "FllightBookingSchema";
+		MkdFlightPaths in "FllightBookingSchema";
+		MkdTickets in "FllightBookingSchema";
+		MkdManagers in "FllightBookingSchema";
+		FlightBookingApp in "FllightBookingSchema";
+		PlaneSize in "FllightBookingSchema";
+		MkdPlanes in "FllightBookingSchema";
+		MkdBaggages in "FllightBookingSchema";
+		Staff in "FllightBookingSchema";
+		MkdPeople in "FllightBookingSchema";
 	)
 schemaViewDefinitions
 exportedPackageDefinitions
 typeSources
+	FlightBookingSchema (
+	jadeMethodSources
+genericExceptionHandler
+{
+genericExceptionHandler(exObj: Exception): Integer;
+
+vars
+
+begin
+	abortTransaction;
+	exObj.logSelf("errors.log");
+	app.msgBox("createAirport says: the airport is not created, the entry city does not have an airport in our database",
+				"Application Error", MsgBox_OK_Only);
+	return Ex_Abort_Action;
+end;
+
+}
+
+initialize
+{
+initialize() updating;
+
+vars
+
+begin
+	inheritMethod();
+	self.myFlightBookingApp := FlightBookingApp.firstInstance;
+	if self.myFlightBookingApp = null then
+		beginTransaction;
+		create myFlightBookingApp persistent;
+		commitTransaction;
+	endif;
+end;
+
+}
+
+	)
+	FlightBookingApp (
+	jadeMethodSources
+nextFlightNum
+{
+nextFlightNum(): Integer updating;
+
+vars
+
+begin
+	self.flightNum.incrementByOne;
+	return self.flightNum;
+end;
+
+}
+
+	)
+	Airport (
+	jadeMethodSources
+checkAirportInCity
+{
+checkAirportInCity(pCityName: String; pCityCode: String output): Boolean protected;
+
+vars
+	cons: String;
+begin
+	cons := pCityName.toUpper;
+	
+	if cons = String.WELLINGTON_CITY then	
+		pCityCode := String.WELLINGTON_AIRPORT;
+		
+	elseif cons = String.AUCKLAND_CITY then	
+		pCityCode := String.AUCKLAND_AIRPORT;
+		
+	elseif cons = String.INVERCARGILL_CITY then	
+		pCityCode := String.INVERCARGILL_AIRPORT;
+		
+	else	
+		pCityCode := " ";
+		return false;
+	endif;
+	return true;
+end;
+
+}
+
+createAirport
+{
+createAirport(pCityName : String) updating;
+
+vars
+	isNZCity : Boolean;
+	code: String;
+begin
+	isNZCity := self.checkAirportInCity(pCityName, code);
+	if isNZCity then
+		self.cityName := pCityName;
+		self.cityCode := code;
+		self.airportCode := code;
+	else
+		//on Exception do self.createAiportHandler(exception);
+	endif;
+end;
+
+}
+
+createAirportHandler
+{
+createAirportHandler(exObj: Exception): Integer;
+
+vars
+
+begin
+	exObj.logSelf("errors.log");
+	app.msgBox("createAirport says: the airport is not created, the entry city does not have an airport in our database",
+				"Application Error", MsgBox_OK_Only);
+	return Ex_Abort_Action;
+end;
+
+}
+
+	)
+	Flight (
+	jadeMethodSources
+createFlight
+{
+createFlight(pFlightPath: FlightPath; pPlane: Plane; pDate: Date; pTime: Time; pStatus: String) updating;
+
+vars
+
+begin
+	self.myFlightPath := pFlightPath;
+
+	self.myPlane := pPlane;
+
+	self.date := pDate;
+	self.time := pTime;
+	self.myFlightStatus := pStatus;
+	self.flightID := pDate.String & ", " & pTime.String & ", " & pFlightPath.pathID;
+	self.number := app.myFlightBookingApp.nextFlightNum;
+	//Before the root object can be accessed with app.myBank, an application or JadeScript method must execute app.initialize.
+end;
+
+}
+
+	)
+	FlightPath (
+	jadeMethodSources
+createFlightPath
+{
+createFlightPath(pDepartureAirport, pArrivalAirport: Airport) updating;
+
+vars
+	
+begin
+	self.arrivalAirport := pArrivalAirport;
+
+	self.departureAirport := pDepartureAirport;
+	
+	self.pathID := pDepartureAirport.airportCode & "_TO_" & pArrivalAirport.airportCode;
+end;
+
+}
+
+	)
+	Password (
+	jadeMethodSources
+createPassword
+{
+createPassword(pwd : String) : Boolean updating;
+
+vars
+
+begin
+	self.password := pwd;
+	return true;
+end;
+
+}
+
+	)
+	Admin (
+	jadeMethodSources
+setPropertiesOnCreate
+{
+setPropertiesOnCreate(pTitle:String;pFirstname: String;pLastname: String;pDOB :Date; pIsStaff
+:Boolean;pPWD :Password;pAID: String) updating;
+
+vars
+begin
+	self.title := pTitle;
+	self.firstNames := pFirstname;
+	self.lastName := pLastname;
+	self.dateOfBirth := pDOB;
+	self.isStaff:= pIsStaff;
+	self.myPassword := pPWD;
+	self.adminID := pAID;
+end;
+
+}
+
+	)
+	Manager (
+	jadeMethodSources
+setPropertiesOnCreate
+{
+setPropertiesOnCreate(pTitle:String;pFirstname: String;pLastname: String;pDOB :Date; pIsStaff
+:Boolean;pPWD :Password;pMID: String) updating;
+
+vars
+begin
+	self.title := pTitle;
+	self.firstNames := pFirstname;
+	self.lastName := pLastname;
+	self.dateOfBirth := pDOB;
+	self.isStaff:= pIsStaff;
+	self.myPassword := pPWD;
+	self.managerID := pMID;
+end;
+
+}
+
+	)
+	Passenger (
+	jadeMethodSources
+setPropertiesOnCreate
+{
+setPropertiesOnCreate(pTitle:String;pFirstname: String;pLastname: String;pDOB :Date; pIsStaff
+:Boolean;pPWD :Password) updating;
+
+vars
+begin
+	self.title := pTitle;
+	self.firstNames := pFirstname;
+	self.lastName := pLastname;
+	self.dateOfBirth := pDOB;
+	self.isStaff:= pIsStaff;
+	self.myPassword := pPWD;
+	self.passengerID := "ID";
+end;
+
+}
+
+	)
 	Plane (
 	jadeMethodSources
 createPlane
@@ -329,41 +954,457 @@ begin
 		self.type 			:= TYPE_1_AIRBUS;
 		self.numberOfSeat := 171;
 		self.size 			:= "37.57 m Length, 35.8 m Wingspan, 11.76 m Height";
+		self.planeID := TYPE_1_AIRBUS; 
 	elseif type = 2 then
 		self.type := TYPE_2_AIRBUS;
 		self.numberOfSeat := 171;
 		self.size 			:= "44.51 m Length, 35.8 m Wingspan, 11.76 m Height";
+		self.planeID := TYPE_2_AIRBUS;
 	elseif type = 3 then
 		self.type := TYPE_3_ATR;
 		self.numberOfSeat := 96;
 		self.size 			:= "27.17 m Length, 27.05 m Wingspan, 7.65 m Height";
+		self.planeID := TYPE_3_ATR;
 	elseif type = 4 then
 		self.type := TYPE_4_BOEING;
 		self.numberOfSeat := 312;
 		self.size 			:= "63.73 m Length, 60.93 m Wingspan, 18.5 m Height";
+		self.planeID := TYPE_4_BOEING;
 	elseif type = 5 then
 		self.type := TYPE_5_BOEING;
 		self.numberOfSeat := 342;
 		self.size 			:= "73.86 m Length, 64.80 m Wingspan, 18.6 m Height";
+		self.planeID := TYPE_5_BOEING;
 	elseif type = 6 then
 		self.type := TYPE_6_BOEING;
 		self.numberOfSeat := 275;
 		self.size 			:= "62.81 m Length, 60.12 m Wingspan, 17.02 m Height";
+		self.planeID := TYPE_6_BOEING;
 	elseif type = 7 then
 		self.type := TYPE_7_BOEING;
 		self.numberOfSeat := 275;
 		self.size 			:= "68.28 m Length, 60.12 m Wingspan, 17.02 m Height";
+		self.planeID := TYPE_7_BOEING;
 	elseif type = 8 then
 		self.type := TYPE_8_BOMBARDIER;
 		self.numberOfSeat := 96;
 		self.size 			:= "25.70 m Length, 27.4 m Wingspan, 7.49 m Height";
+		self.planeID := TYPE_8_BOMBARDIER;
 	else
 		self.type := TYPE_1_AIRBUS;
 		self.numberOfSeat := 171;
 		self.size 			:= "37.57 m Length, 35.8 m Wingspan, 11.76 m Height";
+		self.planeID := TYPE_1_AIRBUS;
 	endif;
 
 
+end;
+
+}
+
+	)
+	Seat (
+	jadeMethodSources
+creatSeat
+{
+creatSeat(pPlane: Plane) updating;
+
+vars
+
+begin
+	self.isOccupied := false;
+	self.myPlane := pPlane;
+	self.nextNumber.incrementByOne;
+	self.seatNumber := pPlane.planeID & "_Seat_" & self.nextNumber.String;
+end;
+
+}
+
+nextSeatNumber
+{
+nextSeatNumber():Integer updating, protected;
+
+vars
+	
+begin
+//This is just case if we need this kind of method.
+	self.nextNumber.incrementByOne;
+	return self.nextNumber;
+end;
+
+}
+
+	)
+	Ticket (
+	jadeMethodSources
+isSold
+{
+isSold() updating;
+
+vars
+
+begin
+	self.paymentStatus := true;
+	self.mySeat.isOccupied := true;
+end;
+
+}
+
+	)
+	JadeScript (
+	jadeMethodSources
+addAPFP
+{
+addAPFP();
+
+vars
+	ap : Airport;
+	ap2 : Airport;
+	ap3 : Airport;
+	ap4 : Airport;
+	fp : FlightPath;
+	kap : MkdAirports;
+	kfp : MkdFlightPaths;
+begin
+	beginTransaction;
+		create kap persistent;
+		create kfp persistent;
+		
+		create ap persistent;
+		ap.airportCode := "AL1";
+		ap.cityCode := "001";
+		ap.cityName := "Auckland";
+		kap.add(ap);
+		
+		create ap2 persistent;
+		ap2.airportCode := "CC1";
+		ap2.cityCode := "002";
+		ap2.cityName := "Christchurch";
+		kap.add(ap2);
+		
+		create fp persistent;
+		fp.pathID := "001";
+		fp.myArrivalAirport := ap;
+		fp.myDepartureAirport := ap2;
+		kfp.add(fp);
+		
+		create ap3 persistent;
+		ap3.airportCode := "LD1";
+		ap3.cityCode := "003";
+		ap3.cityName := "London";
+		kap.add(ap3);
+		
+		create ap4 persistent;
+		ap4.airportCode := "DD1";
+		ap4.cityCode := "004";
+		ap4.cityName := "Dunedin";
+		kap.add(ap4);
+		
+		create fp persistent;
+		fp.pathID := "002";
+		fp.myArrivalAirport := ap3;
+		fp.myDepartureAirport := ap4;
+		kfp.add(fp);
+	commitTransaction;
+end;
+
+}
+
+addAdmin
+{
+addAdmin();
+
+vars
+	ap : Admin;
+	pwd: Password;
+	birthDay : Date;
+	gotPwd : Boolean;
+begin
+	beginTransaction;
+	create ap persistent;
+	create pwd persistent;
+	gotPwd := pwd.createPassword("654321");
+	if gotPwd then
+		birthDay := "06 May 1988".Date;
+		ap.setPropertiesOnCreate("Mr.","Joy","Brown",birthDay,true,pwd,"a111");
+	endif;
+	commitTransaction;
+end;
+
+}
+
+addFlights
+{
+addFlights();
+
+vars
+	fl :Flight;
+	fp:FlightPath;
+	kf:MkdFlights;
+begin
+	beginTransaction;
+	create kf persistent;
+	create fl persistent;
+	fl.flightID := "NC001";
+	fl.time := "10:20".Time;
+	fl.date := "2020 12 15".Date;
+	fl.myFlightStatus := "Ready";
+	fp := MkdFlightPaths.firstInstance().getAtKey("001");
+	fl.myFlightPath := fp;
+	kf.add(fl);
+	create fl persistent;
+	fl.flightID := "NC002";
+	fl.time := "16:55".Time;
+	fl.date := "2020 11 15".Date;
+	fl.myFlightStatus := "Ready";
+	fp := MkdFlightPath.firstInstance().getAtKey("002");
+	fl.myFlightPath := fp;
+	kf.add(fl);
+	commitTransaction;
+end;
+
+}
+
+addKP
+{
+addKP();
+
+vars
+	kp:MkdPassengers;
+	km : MkdManagers;
+	ka:MkdAdmin;
+begin
+	beginTransaction;
+		create kp persistent;
+		kp.add(Passenger.firstInstance);
+		create km persistent;
+		km.add(Manager.firstInstance);
+		create ka persistent;
+		ka.add(Admin.firstInstance);
+	commitTransaction;
+end;
+
+}
+
+addManager
+{
+addManager();
+
+vars
+	ap : Manager;
+	pwd: Password;
+	birthDay : Date;
+	gotPwd : Boolean;
+begin
+	beginTransaction;
+	create ap persistent;
+	create pwd persistent;
+	gotPwd := pwd.createPassword("123456");
+	if gotPwd then
+		birthDay := "05 12 1993".Date;
+		ap.setPropertiesOnCreate("Ms.","Vivian","Sharp",birthDay,true,pwd,"m112");
+	endif;
+	commitTransaction;
+end;
+
+}
+
+addPassenger
+{
+addPassenger();
+
+vars
+	ap : Passenger;
+	pwd: Password;
+	birthDay : Date;
+	gotPwd : Boolean;
+begin
+	beginTransaction;
+	create ap persistent;
+	create pwd persistent;
+	gotPwd := pwd.createPassword("123456");
+	if gotPwd then
+		birthDay := "30 11 1991".Date;
+		ap.setPropertiesOnCreate("Ms.","Kyuko","Morida",birthDay,false,pwd);
+	endif;
+	commitTransaction;
+end;
+
+}
+
+addPlane
+{
+addPlane();
+
+vars
+	pl : Plane;
+begin
+	beginTransaction;
+	create pl persistent;
+	pl.planeID := "NZ001";
+	pl.type:="747";
+	pl.size:="huge";
+	pl.numberOfSeat:=200;
+	create pl persistent;
+	pl.planeID := "NZ002";
+	pl.type:="737";
+	pl.size:="huge";
+	pl.numberOfSeat:=200;
+	commitTransaction;
+end;
+
+}
+
+addSeats
+{
+addSeats();
+
+vars
+	st : Seat;
+	kst:MkdSeats;
+begin
+	beginTransaction;
+	create kst persistent;
+	create st persistent;
+	st.seatNumber := "n001";
+	st.myPlane := Plane.firstInstance();
+	st.isOccupied := false;
+	kst.add(st);
+	
+	create st persistent;
+	st.seatNumber := "n002";
+	st.myPlane := Plane.firstInstance();
+	st.isOccupied := false;
+	kst.add(st);
+	
+	create st persistent;
+	st.seatNumber := "n003";
+	st.myPlane := Plane.firstInstance();
+	st.isOccupied := false;
+	kst.add(st);
+	
+	create st persistent;
+	st.seatNumber := "n004";
+	st.myPlane := Plane.lastInstance();
+	st.isOccupied := false;
+	kst.add(st);
+	create st persistent;
+	st.seatNumber := "n005";
+	st.myPlane := Plane.lastInstance();
+	st.isOccupied := false;
+	kst.add(st);
+	create st persistent;
+	st.seatNumber := "n006";
+	st.myPlane := Plane.lastInstance();
+	st.isOccupied := false;
+	kst.add(st);
+	commitTransaction;
+end;	
+
+}
+
+addTicket
+{
+addTicket();
+
+vars
+	tk : Ticket;
+	bg : Baggage;
+	ktk : MkdTickets;
+begin
+	beginTransaction;
+	create ktk persistent;
+	
+	create bg persistent;
+	bg.baggageID:="bg001";
+	bg.myWeight:=23.5;
+	create tk persistent;
+	tk.ticketID := "P001";
+	tk.myFlightID := Flight.firstInstance();
+	tk.mySeatNumber := Seat.firstInstance();
+	tk.myBaggage := bg;
+	tk.paymentStatus:=false;
+	tk.price:=350;
+	
+	ktk.add(tk);
+	
+	create bg persistent;
+	bg.baggageID:="bg002";
+	bg.myWeight:=22.2;
+	create tk persistent;
+	tk.ticketID := "P002";
+	tk.myFlightID := Flight.lastInstance();
+	tk.mySeatNumber := Seat.lastInstance();
+	tk.myBaggage := bg;
+	tk.paymentStatus:=true;
+	tk.price:=378;
+	ktk.add(tk);
+	commitTransaction;
+end;
+
+}
+
+fulfillData
+{
+fulfillData();
+
+vars
+
+begin
+	addPlane();
+	addSeats();
+	addAPFP();
+	addFlights();
+	modifyFlight();
+	addManager();
+	addPassenger();
+	addAdmin();
+	addKP();
+	addTicket();
+end;
+
+}
+
+modifyFlight
+{
+modifyFlight();
+
+vars
+	fl : Flight;
+begin
+	beginTransaction;
+	fl := Flight.firstInstance();
+	fl.myPlaneID := Plane.firstInstance();
+	fl := Flight.lastInstance();
+	fl.myPlaneID := Plane.lastInstance();
+	commitTransaction;
+end;
+
+}
+
+	)
+	Integer (
+	jadeMethodSources
+decrementByOne
+{
+decrementByOne() updating;
+
+vars
+
+begin
+	self := self - 1;
+end;
+
+}
+
+incrementByOne
+{
+incrementByOne() updating;
+
+vars
+
+begin
+	self := self + 1;
 end;
 
 }
