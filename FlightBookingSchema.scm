@@ -11,17 +11,17 @@ localeDefinitions
 libraryDefinitions
 typeHeaders
 	FlightBookingSchema subclassOf RootSchemaApp transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, highestOrdinal = 1, number = 2065;
-	FlightBookingApp subclassOf Object highestOrdinal = 1, number = 2134;
+	FlightBookingApp subclassOf Object highestOrdinal = 11, number = 2134;
 	FlightBookingModelClasses subclassOf Object abstract, number = 2076;
 	Airport subclassOf FlightBookingModelClasses highestOrdinal = 3, number = 2077;
-	Baggage subclassOf FlightBookingModelClasses highestOrdinal = 3, number = 2083;
+	Baggage subclassOf FlightBookingModelClasses highestOrdinal = 4, number = 2083;
 	Flight subclassOf FlightBookingModelClasses highestOrdinal = 11, number = 2079;
 	FlightPath subclassOf FlightBookingModelClasses highestOrdinal = 8, number = 2078;
 	Password subclassOf FlightBookingModelClasses highestOrdinal = 2, number = 2066;
 	Person subclassOf FlightBookingModelClasses abstract, highestOrdinal = 9, number = 2086;
 	Admin subclassOf Person highestOrdinal = 1, number = 2089;
 	Manager subclassOf Person highestOrdinal = 1, number = 2088;
-	Passenger subclassOf Person highestOrdinal = 2, number = 2087;
+	Passenger subclassOf Person highestOrdinal = 3, number = 2087;
 	Staff subclassOf Person highestOrdinal = 1, number = 2149;
 	Plane subclassOf FlightBookingModelClasses highestSubId = 1, highestOrdinal = 9, number = 2115;
 	PlaneSize subclassOf Plane protected, final, highestOrdinal = 4, number = 2144;
@@ -79,12 +79,52 @@ typeDefinitions
 	(
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:15:56:08.675;
 	attributeDefinitions
+		airportNum:                    Integer protected, number = 6, ordinal = 6;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:47:01.652;
+		baggageNum:                    Integer protected, number = 2, ordinal = 2;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:35:17.732;
 		flightNum:                     Integer protected, number = 1, ordinal = 1;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:49:45.549;
+		flightPathNum:                 Integer protected, number = 7, ordinal = 7;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:47:25.855;
+		managerNum:                    Integer protected, number = 5, ordinal = 5;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:43:30.860;
+		passengerNum:                  Integer protected, number = 3, ordinal = 3;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:43:04.465;
+		passwordNum:                   Integer protected, number = 11, ordinal = 11;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:49:38.036;
+		planeNum:                      Integer protected, number = 8, ordinal = 8;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:47:34.416;
+		seatNum:                       Integer protected, number = 9, ordinal = 9;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:47:39.908;
+		staffNum:                      Integer protected, number = 4, ordinal = 4;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:43:19.807;
+		ticketNum:                     Integer protected, number = 10, ordinal = 10;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:48:12.437;
  
 	jadeMethodDefinitions
+		nextAirportNum() updating, number = 1008;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:45:44.776;
+		nextBaggageNum(): Integer updating, number = 1002;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:37:50.375;
 		nextFlightNum(): Integer updating, number = 1001;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:50:58.938;
+		nextFlightPathNum() updating, number = 1009;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:45:57.010;
+		nextManagerNum() updating, number = 1005;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:44:51.761;
+		nextPassengerNum(): Integer updating, number = 1003;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:44:18.315;
+		nextPasswordNum() updating, number = 1011;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:46:26.592;
+		nextPlanNum() updating, number = 1006;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:45:01.120;
+		nextSeatNum() updating, number = 1010;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:46:07.972;
+		nextStaffNum() updating, number = 1004;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:44:39.881;
+		nextTicketNum() updating, number = 1007;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:45:17.701;
 	)
 	FlightBookingModelClasses completeDefinition
 	(
@@ -92,7 +132,7 @@ typeDefinitions
 	)
 	Airport completeDefinition
 	(
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:16:50:25.924;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:41:14.384;
 	attributeDefinitions
 		airportCode:                   String[4] number = 1, ordinal = 1;
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:10:53:15.156;
@@ -108,8 +148,6 @@ typeDefinitions
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:17:59:32.260;
 		createAirport(pCityName: String) updating, number = 1001;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:17:49:06.785;
-		createAirportHandler(exObj: Exception): Integer number = 1002;
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:17:47:30.096;
 	)
 	Baggage completeDefinition
 	(
@@ -119,9 +157,18 @@ typeDefinitions
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:11:08:31.530;
 		myWeight:                      Decimal[5] number = 2, ordinal = 2;
 		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:14:19:46:57.353;
+		number:                        Integer protected, number = 4, ordinal = 4;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:38:19.454;
 	referenceDefinitions
 		myTicket:                      Ticket   explicitEmbeddedInverse, protected, number = 3, ordinal = 3;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:31:56.257;
+ 
+	jadeMethodDefinitions
+		createBaggage(
+			pPerson: Person; 
+			pTicket: Ticket; 
+			pWeight: Decimal) updating, number = 1001;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:40:20.466;
 	)
 	Flight completeDefinition
 	(
@@ -247,19 +294,22 @@ typeDefinitions
 	Passenger completeDefinition
 	(
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:39:18.283;
+	attributeDefinitions
+		number:                        Integer protected, number = 1, ordinal = 3;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:42:41.039;
 	referenceDefinitions
 		myTicket:                      Ticket   explicitEmbeddedInverse, readonly, number = 2, ordinal = 2;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:26:08.440;
  
 	jadeMethodDefinitions
-		setPropertiesOnCreate(
+		createPassenger(
 			pTitle: String; 
 			pFirstname: String; 
 			pLastname: String; 
 			pDOB: Date; 
 			pIsStaff: Boolean; 
 			pPWD: Password) updating, number = 1001;
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:43:15.181;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:42:32.478;
 	)
 	Staff completeDefinition
 	(
@@ -401,7 +451,7 @@ typeDefinitions
 		addManager() number = 1002;
 		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:06:22:41:06.231;
 		addPassenger() number = 1003;
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:43:10.302;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:33:21.056;
 		addPlane() number = 1006;
 		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:14:19:21:33.965;
 		addSeats() number = 1007;
@@ -740,6 +790,31 @@ end;
 	)
 	FlightBookingApp (
 	jadeMethodSources
+nextAirportNum
+{
+nextAirportNum() updating;
+
+vars
+
+begin
+
+end;
+
+}
+
+nextBaggageNum
+{
+nextBaggageNum(): Integer updating;
+
+vars
+
+begin
+	self.baggageNum.incrementByOne;
+	return self.baggageNum;
+end;
+
+}
+
 nextFlightNum
 {
 nextFlightNum(): Integer updating;
@@ -749,6 +824,103 @@ vars
 begin
 	self.flightNum.incrementByOne;
 	return self.flightNum;
+end;
+
+}
+
+nextFlightPathNum
+{
+nextFlightPathNum() updating;
+
+vars
+
+begin
+
+end;
+
+}
+
+nextManagerNum
+{
+nextManagerNum() updating;
+
+vars
+
+begin
+
+end;
+
+}
+
+nextPassengerNum
+{
+nextPassengerNum(): Integer updating;
+
+vars
+
+begin
+	self.passengerNum.incrementByOne;
+	return self.passengerNum;
+end;
+
+}
+
+nextPasswordNum
+{
+nextPasswordNum() updating;
+
+vars
+
+begin
+
+end;
+
+}
+
+nextPlanNum
+{
+nextPlanNum() updating;
+
+vars
+
+begin
+
+end;
+
+}
+
+nextSeatNum
+{
+nextSeatNum() updating;
+
+vars
+
+begin
+
+end;
+
+}
+
+nextStaffNum
+{
+nextStaffNum() updating;
+
+vars
+
+begin
+
+end;
+
+}
+
+nextTicketNum
+{
+nextTicketNum() updating;
+
+vars
+
+begin
+
 end;
 
 }
@@ -803,17 +975,21 @@ end;
 
 }
 
-createAirportHandler
+	)
+	Baggage (
+	jadeMethodSources
+createBaggage
 {
-createAirportHandler(exObj: Exception): Integer;
+createBaggage(pPerson: Person; pTicket: Ticket; pWeight: Decimal) updating;
 
 vars
-
+	
 begin
-	exObj.logSelf("errors.log");
-	app.msgBox("createAirport says: the airport is not created, the entry city does not have an airport in our database",
-				"Application Error", MsgBox_OK_Only);
-	return Ex_Abort_Action;
+	self.number := app.myFlightBookingApp.nextBaggageNum;
+	//Before the root object can be accessed with app.myBank, an application or JadeScript method must execute app.initialize.
+	self.myWeight := pWeight;
+	self.baggageID := pPerson.lastName & pPerson.firstNames[1:2] & "_" & self.number.String;
+	self.myTicket := pTicket;
 end;
 
 }
@@ -922,10 +1098,10 @@ end;
 	)
 	Passenger (
 	jadeMethodSources
-setPropertiesOnCreate
+createPassenger
 {
-setPropertiesOnCreate(pTitle:String;pFirstname: String;pLastname: String;pDOB :Date; pIsStaff
-:Boolean;pPWD :Password) updating;
+createPassenger(pTitle, pFirstname, pLastname: String;pDOB :Date; pIsStaff
+:Boolean; pPWD :Password) updating;
 
 vars
 begin
@@ -1225,7 +1401,7 @@ begin
 	gotPwd := pwd.createPassword("123456");
 	if gotPwd then
 		birthDay := "30 11 1991".Date;
-		ap.setPropertiesOnCreate("Ms.","Kyuko","Morida",birthDay,false,pwd);
+		ap.createPassenger("Ms.","Kyuko","Morida",birthDay,false,pwd);
 	endif;
 	commitTransaction;
 end;
