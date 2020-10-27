@@ -15,10 +15,10 @@ typeHeaders
 	SFlightBookingViewSchema subclassOf SFlightBookingSchema transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2073;
 	FrmAddPassenger subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 12, number = 2059;
 	FrmEditPassenger subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 5, number = 2058;
-	FrmEntrance subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 3, number = 2090;
 	FrmFlightPrint subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 13, number = 2095;
-	FrmGuest subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 1, number = 2091;
+	FrmMainParent subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 7, number = 2156;
 	FrmModifyPassengerDetail subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 11, number = 2096;
+	FrmNoLogin subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 2, number = 2157;
 	FrmPassengerLogin subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 6, number = 2092;
 	FrmPassengerPage subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 10, number = 2094;
 	FrmPayment subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 3, number = 2060;
@@ -83,7 +83,7 @@ typeDefinitions
 	)
 	FrmAddPassenger completeDefinition
 	(
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:19:15:39:21.227;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:13:34:18.393;
 	attributeDefinitions
 		isAdmin:                       Boolean number = 12, ordinal = 12;
 		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:19:17:14:30.899;
@@ -153,30 +153,6 @@ typeDefinitions
 		load = load of Form;
 		remove_click = click of Button;
 	)
-	FrmEntrance completeDefinition
-	(
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:21:29:28.737;
-	referenceDefinitions
-		guestBtn:                      Button  number = 1, ordinal = 1;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:15:18:09:24.129;
-		passengerBtn:                  Button  number = 2, ordinal = 2;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:15:18:21:02.488;
-		stuffBtn:                      Button  number = 3, ordinal = 3;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:15:18:21:02.488;
- 
-	jadeMethodDefinitions
-		guestBtn_click(btn: Button input) updating, number = 1001;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:15:18:35:28.760;
-		passengerBtn_click(btn: Button input) updating, number = 1002;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:15:19:28:24.695;
-		stuffBtn_click(btn: Button input) updating, number = 1003;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:21:03:57.705;
- 
-	eventMethodMappings
-		guestBtn_click = click of Button;
-		passengerBtn_click = click of Button;
-		stuffBtn_click = click of Button;
-	)
 	FrmFlightPrint completeDefinition
 	(
 		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:17:44:11.556;
@@ -219,19 +195,36 @@ typeDefinitions
 		load = load of Form;
 		oK_click = click of Button;
 	)
-	FrmGuest completeDefinition
+	FrmMainParent completeDefinition
 	(
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:17:02:48.831;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:27:21:04:26.029;
 	referenceDefinitions
-		flightList:                    ListBox  number = 1, ordinal = 1;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:15:18:29:23.555;
+		mnuAdmin:                      MenuItem  number = 4, ordinal = 4;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:12:58:52.678;
+		mnuExit:                       MenuItem  number = 5, ordinal = 5;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:12:58:52.678;
+		mnuGuest:                      MenuItem  number = 6, ordinal = 6;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:13:34:02.080;
+		mnuLogin:                      MenuItem  number = 1, ordinal = 1;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:12:58:52.678;
+		mnuManager:                    MenuItem  number = 3, ordinal = 3;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:12:58:52.678;
+		mnuPassenger:                  MenuItem  number = 2, ordinal = 2;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:12:58:52.678;
+		statusLine:                    StatusLine  number = 7, ordinal = 7;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:13:40:49.153;
  
 	jadeMethodDefinitions
-		load() updating, number = 1001;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:15:18:58:09.329;
+		load() updating, number = 1003;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:13:55:23.087;
+		mnuGuest_click(menuItem: MenuItem input) updating, number = 1001;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:13:47:41.275;
+		writeToStatusLine(pMessage: String) protected, number = 1002;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:13:42:26.336;
  
 	eventMethodMappings
 		load = load of Form;
+		mnuGuest_click = click of MenuItem;
 	)
 	FrmModifyPassengerDetail completeDefinition
 	(
@@ -273,6 +266,30 @@ typeDefinitions
 		cancel_click = click of Button;
 		confirm_click = click of Button;
 		load = load of Form;
+	)
+	FrmNoLogin completeDefinition
+	(
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:14:01:22.606;
+	referenceDefinitions
+		button1:                       Button  number = 2, ordinal = 2;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:13:46:27.017;
+		tableFlights:                  Table  number = 1, ordinal = 1;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:13:46:27.017;
+ 
+	jadeMethodDefinitions
+		load() updating, number = 1001;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:14:04:40.049;
+		tableFlights_displayRow(
+			table: Table input; 
+			theSheet: Integer; 
+			obj: Object; 
+			theRow: Integer; 
+			bcontinue: Boolean io): String updating, number = 1002;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:14:13:10.379;
+ 
+	eventMethodMappings
+		load = load of Form;
+		tableFlights_displayRow = displayRow of Table;
 	)
 	FrmPassengerLogin completeDefinition
 	(
@@ -662,48 +679,6 @@ end;
 }
 
 	)
-	FrmEntrance (
-	jadeMethodSources
-guestBtn_click
-{
-guestBtn_click(btn: Button input) updating;
-
-vars
-	guestFrm : FrmGuest;
-begin
-	create guestFrm transient;
-	guestFrm.show();
-end;
-
-}
-
-passengerBtn_click
-{
-passengerBtn_click(btn: Button input) updating;
-
-vars
-	guestFrm : FrmPassengerLogin;
-begin
-	create guestFrm transient;
-	guestFrm.show();
-end;
-
-}
-
-stuffBtn_click
-{
-stuffBtn_click(btn: Button input) updating;
-
-vars
-	guestFrm : FrmStaffLogin;
-begin
-	create guestFrm transient;
-	guestFrm.show();
-end;
-
-}
-
-	)
 	FrmFlightPrint (
 	jadeMethodSources
 load
@@ -737,23 +712,42 @@ end;
 }
 
 	)
-	FrmGuest (
+	FrmMainParent (
 	jadeMethodSources
 load
 {
 load() updating;
 
 vars
-	fl : Flight;
+
 begin
-	foreach fl in MkdFlights.firstInstance do
-		if fl.myFlightStatus = "Ready" then
-			flightList.addItem(
-			"ID:"&fl.flightID&" | From "&fl.myFlightPath.myDepartureAirport.cityName&
-			" to "&fl.myFlightPath.myArrivalAirport.cityName&" | Date: "&fl.date.String&
-			" "&fl.time.String);
-		endif;
-	endforeach;
+	app.mdiFrame := FrmMainParent;
+end;
+
+}
+
+mnuGuest_click
+{
+mnuGuest_click(menuItem: MenuItem input) updating;
+
+vars
+	form : FrmNoLogin;
+begin
+	writeToStatusLine("Browsing as a Guest ...");
+	create form transient;
+	form.show;
+end;
+
+}
+
+writeToStatusLine
+{
+writeToStatusLine(pMessage: String) protected;
+
+vars
+
+begin
+	statusLine.caption := pMessage;
 end;
 
 }
@@ -857,6 +851,43 @@ begin
 		self.pwd.text:=admin.myPassword.password;
 	endif;
 
+end;
+
+}
+
+	)
+	FrmNoLogin (
+	jadeMethodSources
+load
+{
+load() updating;
+
+vars
+
+begin
+	tableFlights.setCellText(1,1,"Date" & Tab & "Time"& Tab &"From"& Tab & "To"& Tab & "Plane"& Tab & "Status");
+	tableFlights.displayCollection(app.myFlightBookingApp.allFlights,true,0,null);
+end;
+
+}
+
+tableFlights_displayRow
+{
+tableFlights_displayRow(table: Table input; theSheet: Integer; obj: Object; theRow: Integer; bcontinue: Boolean io):String updating;
+
+vars
+	flight: Flight;
+	from: String;
+	destination: String;
+	plane: String;
+	
+begin
+	flight := obj.Flight;
+	from := flight.myFlightPath.departureAirport.cityName;
+	destination := flight.myFlightPath.arrivalAirport.cityName;
+	plane := flight.myPlane.type;
+
+	return flight.date.String & Tab & flight.time.String & Tab & from & Tab & destination & Tab & plane & Tab & flight.myFlightStatus;
 end;
 
 }

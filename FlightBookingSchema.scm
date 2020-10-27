@@ -77,9 +77,9 @@ typeDefinitions
  
 	jadeMethodDefinitions
 		genericExceptionHandler(exObj: Exception): Integer number = 1001;
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:17:41:51.590;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:13:25:24.988;
 		initialize() updating, number = 1002;
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:54:01.587;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:12:35:55.491;
 	)
 	FlightBookingApp completeDefinition
 	(
@@ -827,8 +827,7 @@ vars
 begin
 	abortTransaction;
 	exObj.logSelf("errors.log");
-	app.msgBox("createAirport says: the airport is not created, the entry city does not have an airport in our database",
-				"Application Error", MsgBox_OK_Only);
+	app.msgBox("I wrote this global error exception, something is wrong (genericException)", "Application Error", MsgBox_OK_Only);
 	return Ex_Abort_Action;
 end;
 
@@ -842,6 +841,7 @@ vars
 
 begin
 	inheritMethod();
+	on Exception do self.genericExceptionHandler(exception) global;
 	self.myFlightBookingApp := FlightBookingApp.firstInstance;
 	if self.myFlightBookingApp = null then
 		beginTransaction;
