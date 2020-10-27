@@ -1,5 +1,5 @@
-/* JADE COMMAND FILE NAME C:\Users\User\Documents\IT606\Project\FlightBookingViewSchema.jcf */
-jadeVersionNumber "7.1.03";
+/* JADE COMMAND FILE NAME \\sit.inet\sit\home\Students\2019000224\IT606_OOB_JADE\FromGitHubFlightBooking\Jade_OOD\FlightBookingViewSchema.jcf */
+jadeVersionNumber "7.1.09";
 schemaDefinition
 FlightBookingViewSchema subschemaOf FlightBookingSchema completeDefinition, patchVersioningEnabled = false;
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:04:17:27:20.343;
@@ -13,17 +13,18 @@ typeHeaders
 	FlightBookingViewSchema subclassOf FlightBookingSchema transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2071;
 	GFlightBookingViewSchema subclassOf GFlightBookingSchema transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2072;
 	SFlightBookingViewSchema subclassOf SFlightBookingSchema transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, number = 2073;
-	FrmAddPassenger subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 12, number = 2059;
+	FrmAddPassenger subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 14, number = 2059;
+	FrmAdminMain subclassOf Form transient, transientAllowed, subclassTransientAllowed, number = 2048;
 	FrmEditPassenger subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 5, number = 2058;
 	FrmFlightPrint subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 13, number = 2095;
-	FrmMainParent subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 7, number = 2156;
 	FrmModifyPassengerDetail subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 11, number = 2096;
 	FrmNoLogin subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 2, number = 2157;
-	FrmPassengerLogin subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 6, number = 2092;
-	FrmPassengerPage subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 10, number = 2094;
+	FrmPassengerBrowser subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 11, number = 2094;
+	FrmPassengerLogin subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 8, number = 2092;
 	FrmPayment subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 3, number = 2060;
 	FrmStaffLogin subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 5, number = 2098;
 	FrmStaffPage subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 6, number = 2097;
+	FrmStartMain subclassOf Form transient, transientAllowed, subclassTransientAllowed, highestOrdinal = 7, number = 2156;
  
 interfaceDefs
 membershipDefinitions
@@ -83,40 +84,64 @@ typeDefinitions
 	)
 	FrmAddPassenger completeDefinition
 	(
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:13:34:18.393;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:10:45:56.350;
 	attributeDefinitions
 		isAdmin:                       Boolean number = 12, ordinal = 12;
 		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:19:17:14:30.899;
 	referenceDefinitions
-		add:                           Button  number = 11, ordinal = 11;
+		btnAdd:                        Button  number = 11, ordinal = 11;
 		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:19:15:38:05.500;
-		dOBInput:                      TextBox  number = 9, ordinal = 9;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:19:15:38:05.500;
+		btnCancel:                     Button  number = 13, ordinal = 13;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:09:49:10.006;
 		dateOfBirth:                   Label  number = 4, ordinal = 4;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:19:15:38:05.500;
-		firstnameInput:                TextBox  number = 7, ordinal = 7;
 		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:19:15:38:05.500;
 		fristname:                     Label  number = 2, ordinal = 2;
 		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:19:15:38:05.500;
 		lastname:                      Label  number = 3, ordinal = 3;
 		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:19:15:38:05.500;
-		lastnameInput:                 TextBox  number = 8, ordinal = 8;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:19:15:38:05.500;
 		password:                      Label  number = 5, ordinal = 5;
 		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:19:15:38:05.500;
-		passwordInput:                 TextBox  number = 10, ordinal = 10;
+		statusLine:                    StatusLine  number = 14, ordinal = 14;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:10:00:35.795;
+		tb_DOB:                        TextBox  number = 9, ordinal = 9;
+		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:19:15:38:05.500;
+		tb_FirstNames:                 TextBox  number = 7, ordinal = 7;
+		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:19:15:38:05.500;
+		tb_LastName:                   TextBox  number = 8, ordinal = 8;
+		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:19:15:38:05.500;
+		tb_Password:                   TextBox  number = 10, ordinal = 10;
+		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:19:15:38:05.500;
+		tb_Title:                      TextBox  number = 6, ordinal = 6;
 		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:19:15:38:05.500;
 		title:                         Label  number = 1, ordinal = 1;
 		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:19:15:38:05.500;
-		titleInput:                    TextBox  number = 6, ordinal = 6;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:19:15:38:05.500;
  
 	jadeMethodDefinitions
-		add_click(btn: Button input) updating, number = 1001;
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:07:48.565;
+		btnAdd_click(btn: Button input) updating, number = 1001;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:10:23:41.879;
+		btnCancel_click(btn: Button input) updating, number = 1002;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:09:51:11.712;
+		clearTextBoxes() protected, number = 1003;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:09:57:23.920;
+		createPassenger() protected, number = 1005;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:10:33:15.973;
+		isDataValid(): Boolean protected, number = 1004;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:10:29:18.597;
  
 	eventMethodMappings
-		add_click = click of Button;
+		btnAdd_click = click of Button;
+		btnCancel_click = click of Button;
+	)
+	FrmAdminMain completeDefinition
+	(
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:10:53:16.255;
+ 
+	jadeMethodDefinitions
+		load() updating, number = 1001;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:10:53:16.255;
+ 
+	eventMethodMappings
+		load = load of Form;
 	)
 	FrmEditPassenger completeDefinition
 	(
@@ -195,37 +220,6 @@ typeDefinitions
 		load = load of Form;
 		oK_click = click of Button;
 	)
-	FrmMainParent completeDefinition
-	(
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:27:21:04:26.029;
-	referenceDefinitions
-		mnuAdmin:                      MenuItem  number = 4, ordinal = 4;
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:12:58:52.678;
-		mnuExit:                       MenuItem  number = 5, ordinal = 5;
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:12:58:52.678;
-		mnuGuest:                      MenuItem  number = 6, ordinal = 6;
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:13:34:02.080;
-		mnuLogin:                      MenuItem  number = 1, ordinal = 1;
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:12:58:52.678;
-		mnuManager:                    MenuItem  number = 3, ordinal = 3;
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:12:58:52.678;
-		mnuPassenger:                  MenuItem  number = 2, ordinal = 2;
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:12:58:52.678;
-		statusLine:                    StatusLine  number = 7, ordinal = 7;
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:13:40:49.153;
- 
-	jadeMethodDefinitions
-		load() updating, number = 1003;
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:13:55:23.087;
-		mnuGuest_click(menuItem: MenuItem input) updating, number = 1001;
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:13:47:41.275;
-		writeToStatusLine(pMessage: String) protected, number = 1002;
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:13:42:26.336;
- 
-	eventMethodMappings
-		load = load of Form;
-		mnuGuest_click = click of MenuItem;
-	)
 	FrmModifyPassengerDetail completeDefinition
 	(
 		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:17:28:31.996;
@@ -269,14 +263,16 @@ typeDefinitions
 	)
 	FrmNoLogin completeDefinition
 	(
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:14:01:22.606;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:11:36:10.423;
 	referenceDefinitions
-		button1:                       Button  number = 2, ordinal = 2;
+		btnRegister:                   Button  number = 2, ordinal = 2;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:13:46:27.017;
 		tableFlights:                  Table  number = 1, ordinal = 1;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:13:46:27.017;
  
 	jadeMethodDefinitions
+		btnRegister_click(btn: Button input) updating, number = 1003;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:09:47:08.285;
 		load() updating, number = 1001;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:14:04:40.049;
 		tableFlights_displayRow(
@@ -288,77 +284,87 @@ typeDefinitions
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:14:13:10.379;
  
 	eventMethodMappings
+		btnRegister_click = click of Button;
+		load = load of Form;
+		tableFlights_displayRow = displayRow of Table;
+	)
+	FrmPassengerBrowser completeDefinition
+	(
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:11:51:27.815;
+	attributeDefinitions
+		id:                            String[31] number = 7, ordinal = 7;
+		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:01:54:07.925;
+	referenceDefinitions
+		btn_Booking:                   Button  number = 4, ordinal = 4;
+		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:01:41:28.610;
+		btn_Search:                    Button  number = 10, ordinal = 10;
+		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:19:46:26.378;
+		lb_Flight:                     Label  number = 2, ordinal = 2;
+		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:01:39:29.017;
+		lb_firstNames:                 Label  number = 5, ordinal = 5;
+		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:01:53:31.473;
+		lb_lastName:                   Label  number = 6, ordinal = 6;
+		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:01:53:31.488;
+		lb_selection:                  Label  number = 3, ordinal = 3;
+		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:01:39:29.017;
+		tableFlights:                  Table  number = 1, ordinal = 11;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:11:36:07.547;
+		tb_SearchBar:                  TextBox  number = 9, ordinal = 9;
+		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:19:46:26.376;
+ 
+	jadeMethodDefinitions
+		btn_Booking_click(btn: Button input) updating, number = 1003;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:11:41:38.006;
+		btn_Search_click(btn: Button input) updating, number = 1005;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:11:41:37.959;
+		load() updating, number = 1001;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:11:39:40.864;
+		tableFlights_displayRow(
+			table: Table input; 
+			theSheet: Integer; 
+			obj: Object; 
+			theRow: Integer; 
+			bcontinue: Boolean io): String updating, number = 1002;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:11:43:47.694;
+ 
+	eventMethodMappings
+		btn_Booking_click = click of Button;
+		btn_Search_click = click of Button;
 		load = load of Form;
 		tableFlights_displayRow = displayRow of Table;
 	)
 	FrmPassengerLogin completeDefinition
 	(
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:15:19:33:36.625;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:11:30:35.839;
 	referenceDefinitions
-		altLabel:                      Label  number = 6, ordinal = 6;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:15:19:33:35.715;
-		loginBtn:                      Button  number = 5, ordinal = 5;
+		btn_Cancel:                    Button  number = 5, ordinal = 5;
 		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:15:19:11:20.047;
+		btn_Login:                     Button  number = 6, ordinal = 7;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:10:56:57.143;
 		passengerIpt:                  Label  number = 1, ordinal = 1;
 		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:15:19:11:20.047;
 		password:                      Label  number = 3, ordinal = 3;
 		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:15:19:11:20.047;
-		pidPlace:                      TextBox  number = 2, ordinal = 2;
+		statusLine:                    StatusLine  number = 7, ordinal = 8;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:10:57:46.584;
+		tb_Password:                   TextBox  number = 4, ordinal = 4;
 		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:15:19:11:20.047;
-		pwdPlace:                      TextBox  number = 4, ordinal = 4;
+		tb_passengerID:                TextBox  number = 2, ordinal = 2;
 		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:15:19:11:20.047;
  
 	jadeMethodDefinitions
-		loginBtn_click(btn: Button input) updating, number = 1001;
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:37:26.284;
+		btn_Cancel_click(btn: Button input) updating, number = 1001;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:11:16:02.240;
+		btn_Login_click(btn: Button input) updating, number = 1004;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:11:25:07.983;
+		checkPassengerPassword(): Boolean protected, number = 1002;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:11:29:06.682;
+		clearTextBoxes() protected, number = 1003;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:11:13:11.584;
  
 	eventMethodMappings
-		loginBtn_click = click of Button;
-	)
-	FrmPassengerPage completeDefinition
-	(
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:19:47:27.094;
-	attributeDefinitions
-		id:                            String[31] number = 7, ordinal = 7;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:01:54:07.925;
-	referenceDefinitions
-		booking:                       Button  number = 4, ordinal = 4;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:01:41:28.610;
-		firstname:                     Label  number = 5, ordinal = 5;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:01:53:31.473;
-		flight:                        Label  number = 2, ordinal = 2;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:01:39:29.017;
-		flightInfo:                    Label  number = 3, ordinal = 3;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:01:39:29.017;
-		flightList:                    ListBox  number = 1, ordinal = 1;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:01:15:27.882;
-		lastname:                      Label  number = 6, ordinal = 6;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:01:53:31.488;
-		pdBtn:                         Button  number = 8, ordinal = 8;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:17:10:51.363;
-		search:                        Button  number = 10, ordinal = 10;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:19:46:26.378;
-		searchBar:                     TextBox  number = 9, ordinal = 9;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:19:46:26.376;
- 
-	jadeMethodDefinitions
-		booking_click(btn: Button input) updating, number = 1003;
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:07:58.075;
-		flightList_click(listbox: ListBox input) updating, number = 1002;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:01:40:24.076;
-		load() updating, number = 1001;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:20:01:43.943;
-		pdBtn_click(btn: Button input) updating, number = 1004;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:17:31:25.455;
-		search_click(btn: Button input) updating, number = 1005;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:16:20:31:43.621;
- 
-	eventMethodMappings
-		booking_click = click of Button;
-		flightList_click = click of ListBox;
-		load = load of Form;
-		pdBtn_click = click of Button;
-		search_click = click of Button;
+		btn_Cancel_click = click of Button;
+		btn_Login_click = click of Button;
 	)
 	FrmPayment completeDefinition
 	(
@@ -425,7 +431,7 @@ typeDefinitions
  
 	jadeMethodDefinitions
 		bf_click(btn: Button input) updating, number = 1001;
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:37:26.284;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:11:36:00.969;
 		editmanager_click(btn: Button input) updating, number = 1004;
 		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:19:17:04:30.133;
 		editpassenger_click(btn: Button input) updating, number = 1002;
@@ -438,6 +444,49 @@ typeDefinitions
 		editmanager_click = click of Button;
 		editpassenger_click = click of Button;
 		payment_click = click of Button;
+	)
+	FrmStartMain completeDefinition
+	(
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:10:51:34.786;
+	referenceDefinitions
+		mnuAdmin:                      MenuItem  number = 4, ordinal = 4;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:12:58:52.678;
+		mnuExit:                       MenuItem  number = 5, ordinal = 5;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:12:58:52.678;
+		mnuGuest:                      MenuItem  number = 6, ordinal = 6;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:13:34:02.080;
+		mnuLogin:                      MenuItem  number = 1, ordinal = 1;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:12:58:52.678;
+		mnuManager:                    MenuItem  number = 3, ordinal = 3;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:12:58:52.678;
+		mnuPassenger:                  MenuItem  number = 2, ordinal = 2;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:12:58:52.678;
+		statusLine:                    StatusLine  number = 7, ordinal = 7;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:13:40:49.153;
+ 
+	jadeMethodDefinitions
+		load() updating, number = 1003;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:10:51:26.583;
+		mnuAdmin_click(menuItem: MenuItem input) updating, number = 1004;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:09:39:45.921;
+		mnuExit_click(menuItem: MenuItem input) updating, number = 1007;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:09:43:04.404;
+		mnuGuest_click(menuItem: MenuItem input) updating, number = 1001;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:13:47:41.275;
+		mnuManager_click(menuItem: MenuItem input) updating, number = 1005;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:09:40:05.921;
+		mnuPassenger_click(menuItem: MenuItem input) updating, number = 1006;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:11:20:03.560;
+		writeToStatusLine(pMessage: String) protected, number = 1002;
+		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:26:13:42:26.336;
+ 
+	eventMethodMappings
+		load = load of Form;
+		mnuAdmin_click = click of MenuItem;
+		mnuExit_click = click of MenuItem;
+		mnuGuest_click = click of MenuItem;
+		mnuManager_click = click of MenuItem;
+		mnuPassenger_click = click of MenuItem;
 	)
  
 inverseDefinitions
@@ -459,96 +508,127 @@ exportedPackageDefinitions
 typeSources
 	FrmAddPassenger (
 	jadeMethodSources
-add_click
+btnAdd_click
 {
-add_click(btn: Button input) updating;
+btnAdd_click(btn: Button input) updating;
 
 vars
-	ps:Passenger;
-	pwd:Password;
-	tmpId:Integer;
-	kps:MkdPassengers;
-	ma:Manager;
-	kma:MkdManagers;
+
 begin
-	if self.dOBInput.text = "" then
-		app.msgBox("The info was not completed","Error",MsgBox_OK_Only);
-		return;
-	endif;
-	if self.firstnameInput.text = "" then
-		app.msgBox("The info was not completed","Error",MsgBox_OK_Only);
-		return;
-	endif;
-	if self.lastnameInput.text = "" then
-		app.msgBox("The info was not completed","Error",MsgBox_OK_Only);
-		return;
-	endif;
-	if self.titleInput.text = "" then
-		app.msgBox("The info was not completed","Error",MsgBox_OK_Only);
-		return;
-	endif;
-	if self.passwordInput.text = "" then
-		app.msgBox("The info was not completed","Error",MsgBox_OK_Only);
-		return;
+	if self.isDataValid then
+		self.createPassenger;
+		self.clearTextBoxes;
+		statusLine.caption := "Customer successfully added";
 	endif;
 
-	if self.isAdmin then
 	
-		beginTransaction;
-		create ma persistent;
-		tmpId:=app.random(999); 
-		if tmpId < 10 then
-			ma.managerID:="m00"&tmpId.String;
-		elseif tmpId < 100 then
-			ma.managerID:="m0"&tmpId.String;
-		else
-			ma.managerID:="m"&tmpId.String;
-		endif;
-		ma.dateOfBirth:=self.dOBInput.text.Date;
-		ma.firstName:=self.firstnameInput.text;
-		ma.lastName:=self.lastnameInput.text;
-		ma.title:=self.titleInput.text;
-		create pwd persistent;
-		pwd.password:=self.passwordInput.text;
-		ma.myPassword:=pwd;
-		kma:=MkdManagers.firstInstance();
-		kma.add(ma);
-		app.msgBox("User: "&ma.managerID&" was added","Success",MsgBox_OK_Only);
-		commitTransaction;
-		self.unloadForm();
-	
-	
-	else
-	
-		beginTransaction;
-		create ps persistent;
-		tmpId:=app.random(999); 
-		if tmpId < 10 then
-			ps.passengerID:="p00"&tmpId.String;
-		elseif tmpId < 100 then
-			ps.passengerID:="p0"&tmpId.String;
-		else
-			ps.passengerID:="p"&tmpId.String;
-		endif;
-		ps.dateOfBirth:=self.dOBInput.text.Date;
-		ps.firstName:=self.firstnameInput.text;
-		ps.lastName:=self.lastnameInput.text;
-		ps.title:=self.titleInput.text;
-		create pwd persistent;
-		pwd.password:=self.passwordInput.text;
-		ps.myPassword:=pwd;
-		kps:=MkdPassengers.firstInstance();
-		kps.add(ps);
-		app.msgBox("User: "&ps.passengerID&" was added","Success",MsgBox_OK_Only);
-		commitTransaction;
-		self.unloadForm();
-	
+end;
+
+}
+
+btnCancel_click
+{
+btnCancel_click(btn: Button input) updating;
+
+vars
+
+begin
+	self.unloadForm;
+end;
+
+}
+
+clearTextBoxes
+{
+clearTextBoxes() protected;
+
+vars
+
+begin
+	tb_DOB.text	:= "";
+	tb_Password.text	:= "";
+	tb_Title.text	:= "";
+	tb_FirstNames.text	 := "";
+	tb_LastName.text	:="";
+	tb_Title.setFocus;
+end;
+
+}
+
+createPassenger
+{
+createPassenger() protected;
+
+vars
+	passenger: Passenger;
+	password: Password;
+begin
+	beginTransaction;
+	create passenger persistent;
+	create password persistent;
+	password.createPassword(tb_Password.text.trimBlanks);//would need to create encryption later inside Password
+	passenger.createPassenger(tb_Title.text.trimBlanks,
+								tb_FirstNames.text.trimBlanks,
+								tb_LastName.text.trimBlanks,
+								tb_DOB.text.trimBlanks.asDate,
+								false,
+								password);
+	commitTransaction;
+end;
+
+}
+
+isDataValid
+{
+isDataValid(): Boolean protected;
+
+vars
+	vDate: String;
+begin
+	vDate:= tb_DOB.text;
+	if tb_Title.text = "" then
+		statusLine.caption := "Please enter Title";
+		tb_Title.setFocus;
+		return false;
 	endif;
-
-
-
-
+	if tb_FirstNames.text = "" then
+		statusLine.caption := "Please enter First Names";
+		tb_FirstNames.setFocus;
+		return false;
+	endif;
+	if tb_LastName.text = "" then
+		statusLine.caption := "Please enter Last Name";
+		tb_LastName.setFocus;
+		return false;
+	endif;
+	if vDate = "" or vDate.asDate.isValid then
+		statusLine.caption := "Please enter Date Of Birth, in form of dd/mm/yyyy";
+		tb_DOB.setFocus;
+		return false;
+	endif;
+	if tb_Password.text = "" then
+		statusLine.caption := "Please enter Password";
+		tb_Password.setFocus;
+		return false;
+	endif;
+	return true;
 	
+end;
+
+}
+
+	)
+	FrmAdminMain (
+	jadeMethodSources
+load
+{
+load() updating;
+
+vars
+
+begin
+	
+	app.mdiFrame := FrmAdminMain;
 end;
 
 }
@@ -712,47 +792,6 @@ end;
 }
 
 	)
-	FrmMainParent (
-	jadeMethodSources
-load
-{
-load() updating;
-
-vars
-
-begin
-	app.mdiFrame := FrmMainParent;
-end;
-
-}
-
-mnuGuest_click
-{
-mnuGuest_click(menuItem: MenuItem input) updating;
-
-vars
-	form : FrmNoLogin;
-begin
-	writeToStatusLine("Browsing as a Guest ...");
-	create form transient;
-	form.show;
-end;
-
-}
-
-writeToStatusLine
-{
-writeToStatusLine(pMessage: String) protected;
-
-vars
-
-begin
-	statusLine.caption := pMessage;
-end;
-
-}
-
-	)
 	FrmModifyPassengerDetail (
 	jadeMethodSources
 cancel_click
@@ -858,6 +897,20 @@ end;
 	)
 	FrmNoLogin (
 	jadeMethodSources
+btnRegister_click
+{
+btnRegister_click(btn: Button input) updating;
+
+vars
+	form : FrmAddPassenger;
+begin
+	self.unloadForm;
+	create form transient;
+	form.show;
+end;
+
+}
+
 load
 {
 load() updating;
@@ -893,47 +946,11 @@ end;
 }
 
 	)
-	FrmPassengerLogin (
+	FrmPassengerBrowser (
 	jadeMethodSources
-loginBtn_click
+btn_Booking_click
 {
-loginBtn_click(btn: Button input) updating;
-
-vars
-	ps : Passenger;
-	form : FrmPassengerPage;
-begin
-	if self.pidPlace.text = null then
-		app.msgBox("Incorrect ID or PWD","Access failed",MsgBox_OK_Only);
-		return;
-	elseif self.pwdPlace.text = null then
-		app.msgBox("Incorrect ID or PWD","Access failed",MsgBox_OK_Only);
-		return;
-	endif;
-	ps := MkdPassengers.firstInstance.getAtKey(self.pidPlace.text);
-	if ps = null then
-		app.msgBox("Incorrect ID or PWD","Access failed",MsgBox_OK_Only);
-		return;
-	endif;
-	if ps.myPassword.password = self.pwdPlace.text then
-		create form transient;
-		form.id:=ps.passengerID;
-		form.firstname.caption:=ps.firstNames;
-		form.lastname.caption:=ps.lastName;
-		form.show();
-	else
-		app.msgBox("Incorrect ID or PWD","Access failed",MsgBox_OK_Only);
-	endif;
-end;
-
-}
-
-	)
-	FrmPassengerPage (
-	jadeMethodSources
-booking_click
-{
-booking_click(btn: Button input) updating;
+btn_Booking_click(btn: Button input) updating;
 
 vars
 	fl : Flight;
@@ -995,54 +1012,9 @@ end;
 
 }
 
-flightList_click
+btn_Search_click
 {
-flightList_click(listbox: ListBox input) updating;
-
-vars
-
-begin
-	self.flightInfo.caption := listbox.itemText[listbox.listIndex];
-end;
-
-}
-
-load
-{
-load() updating;
-
-vars
-	fl : Flight;
-begin
-	foreach fl in MkdFlights.firstInstance do
-		if fl.myFlightStatus = "Ready" then
-			self.flightList.addItem(
-			"ID:"&fl.flightID&" | From "&fl.myFlightPath.myDepartureAirport.cityName&
-			" to "&fl.myFlightPath.myArrivalAirport.cityName&" | Date: "&fl.date.String&
-			" "&fl.time.String);
-		endif;
-	endforeach;
-end;
-
-}
-
-pdBtn_click
-{
-pdBtn_click(btn: Button input) updating;
-
-vars
-	form : FrmModifyPassengerDetail;
-begin
-	create form transient;
-	form.id:=self.id;
-	form.show();
-end;
-
-}
-
-search_click
-{
-search_click(btn: Button input) updating;
+btn_Search_click(btn: Button input) updating;
 
 vars
 	index : Integer;
@@ -1076,6 +1048,108 @@ begin
 		endif;
 	endforeach;
 
+end;
+
+}
+
+load
+{
+load() updating;
+
+vars
+	
+begin
+	tableFlights.setCellText(1,1,"Date" & Tab & "Time"& Tab &"From"& Tab & "To"& Tab & "Plane"& Tab & "Status");
+	tableFlights.displayCollection(app.myFlightBookingApp.allFlights,true,0,null);
+	
+end;
+
+}
+
+tableFlights_displayRow
+{
+tableFlights_displayRow(table: Table input; theSheet: Integer; obj: Object; theRow: Integer; bcontinue: Boolean io):String updating;
+
+vars
+	flight: Flight;
+	from: String;
+	destination: String;
+	plane: String;
+	
+begin
+	flight := obj.Flight;
+	from := flight.myFlightPath.departureAirport.cityName;
+	destination := flight.myFlightPath.arrivalAirport.cityName;
+	plane := flight.myPlane.type;
+
+	return flight.date.String & Tab & flight.time.String & Tab & from & Tab & destination & Tab & plane & Tab & flight.myFlightStatus;
+end;
+
+}
+
+	)
+	FrmPassengerLogin (
+	jadeMethodSources
+btn_Cancel_click
+{
+btn_Cancel_click(btn: Button input) updating;
+
+vars
+
+begin
+	self.unloadForm;
+end;
+
+}
+
+btn_Login_click
+{
+btn_Login_click(btn: Button input) updating;
+
+vars
+	form: FrmPassengerBrowser;
+begin
+	if self.checkPassengerPassword then
+		create form transient;
+		form.show;	
+	endif;
+end;
+
+}
+
+checkPassengerPassword
+{
+checkPassengerPassword():Boolean protected;
+
+vars
+	passengerDict: MkdPassengers;
+	vPassenger: Passenger;
+begin
+	//app.FlightBookingApp.allPassengers;
+	vPassenger := Passenger.lastInstance;
+	
+	if self.tb_passengerID.text.trimBlanks = vPassenger.passengerID then
+		if self.tb_Password.text.trimBlanks = vPassenger.myPassword.password then
+			return true;
+		endif;
+	endif;
+	statusLine.caption := "ID or Password is wrong!! " & vPassenger.passengerID & " "& vPassenger.myPassword.password;
+	
+	return false;
+end;
+
+}
+
+clearTextBoxes
+{
+clearTextBoxes() protected;
+
+vars
+
+begin
+	tb_Password.text := "";
+	tb_passengerID.text := "";
+	tb_Password.setFocus;
 end;
 
 }
@@ -1197,19 +1271,19 @@ bf_click
 bf_click(btn: Button input) updating;
 
 vars
-	formbp : FrmPassengerPage;
+	formbp : FrmPassengerBrowser;
 begin
 	create formbp transient;
 	
 	if self.manager <> null then
 		formbp.id:=self.manager.managerID;
-		formbp.firstname.caption:=self.manager.firstNames;
-		formbp.lastname.caption:=self.manager.lastName;
+		formbp.lb_firstNames.caption:=self.manager.firstNames;
+		formbp.lb_lastName.caption:=self.manager.lastName;
 		formbp.show();
 	elseif self.admin <> null then
 		formbp.id:=self.admin.adminID;
-		formbp.firstname.caption:=self.admin.firstNames;
-		formbp.lastname.caption:=self.admin.lastName;
+		formbp.lb_firstNames.caption:=self.admin.firstNames;
+		formbp.lb_lastName.caption:=self.admin.lastName;
 		formbp.show();
 	endif;
 	
@@ -1258,6 +1332,97 @@ vars
 begin
 	create form transient;
 	form.show();
+end;
+
+}
+
+	)
+	FrmStartMain (
+	jadeMethodSources
+load
+{
+load() updating;
+
+vars
+
+begin
+	app.mdiFrame := FrmStartMain;
+end;
+
+}
+
+mnuAdmin_click
+{
+mnuAdmin_click(menuItem: MenuItem input) updating;
+
+vars
+
+begin
+	writeToStatusLine("Browsing as a Admin ...");
+end;
+
+}
+
+mnuExit_click
+{
+mnuExit_click(menuItem: MenuItem input) updating;
+
+vars
+
+begin
+	self.unloadForm;
+end;
+
+}
+
+mnuGuest_click
+{
+mnuGuest_click(menuItem: MenuItem input) updating;
+
+vars
+	form : FrmNoLogin;
+begin
+	writeToStatusLine("Browsing as a Guest ...");
+	create form transient;
+	form.show;
+end;
+
+}
+
+mnuManager_click
+{
+mnuManager_click(menuItem: MenuItem input) updating;
+
+vars
+
+begin
+	writeToStatusLine("Browsing as a Manager ...");
+end;
+
+}
+
+mnuPassenger_click
+{
+mnuPassenger_click(menuItem: MenuItem input) updating;
+
+vars
+	form: FrmPassengerLogin;
+begin
+	create form transient;
+	form.show;
+	writeToStatusLine("Browsing as a Passenger ...");
+end;
+
+}
+
+writeToStatusLine
+{
+writeToStatusLine(pMessage: String) protected;
+
+vars
+
+begin
+	statusLine.caption := pMessage;
 end;
 
 }

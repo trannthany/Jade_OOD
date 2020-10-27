@@ -1,5 +1,5 @@
-/* JADE COMMAND FILE NAME C:\Users\User\Documents\IT606\Project\FlightBookingSchema.jcf */
-jadeVersionNumber "7.1.03";
+/* JADE COMMAND FILE NAME \\sit.inet\sit\home\Students\2019000224\IT606_OOB_JADE\FromGitHubFlightBooking\Jade_OOD\FlightBookingSchema.jcf */
+jadeVersionNumber "7.1.09";
 schemaDefinition
 FlightBookingSchema subschemaOf RootSchema completeDefinition, patchVersioningEnabled = false;
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:04:17:25:30.738;
@@ -11,7 +11,7 @@ localeDefinitions
 libraryDefinitions
 typeHeaders
 	FlightBookingSchema subclassOf RootSchemaApp transient, sharedTransientAllowed, transientAllowed, subclassSharedTransientAllowed, subclassTransientAllowed, highestOrdinal = 1, number = 2065;
-	FlightBookingApp subclassOf Object highestSubId = 6, highestOrdinal = 17, number = 2134;
+	FlightBookingApp subclassOf Object highestSubId = 7, highestOrdinal = 18, number = 2134;
 	FlightBookingModelClasses subclassOf Object abstract, number = 2076;
 	Airport subclassOf FlightBookingModelClasses highestOrdinal = 4, number = 2077;
 	Baggage subclassOf FlightBookingModelClasses highestOrdinal = 4, number = 2083;
@@ -21,7 +21,7 @@ typeHeaders
 	Person subclassOf FlightBookingModelClasses abstract, highestOrdinal = 9, number = 2086;
 	Admin subclassOf Person highestOrdinal = 1, number = 2089;
 	Manager subclassOf Person highestOrdinal = 1, number = 2088;
-	Passenger subclassOf Person highestOrdinal = 3, number = 2087;
+	Passenger subclassOf Person highestOrdinal = 4, number = 2087;
 	Staff subclassOf Person highestOrdinal = 1, number = 2149;
 	Plane subclassOf FlightBookingModelClasses highestSubId = 1, highestOrdinal = 10, number = 2115;
 	PlaneSize subclassOf Plane protected, final, highestOrdinal = 4, number = 2144;
@@ -109,11 +109,13 @@ typeDefinitions
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:48:12.437;
 	referenceDefinitions
 		allAirports:                   MkdAirports   explicitInverse, readonly, subId = 1, number = 12, ordinal = 12;
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:21:24:56.421;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:11:02:25.587;
 		allFlightPaths:                MkdFlightPaths   explicitInverse, readonly, subId = 2, number = 13, ordinal = 13;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:21:24:52.494;
 		allFlights:                    MkdFlights   explicitInverse, readonly, subId = 3, number = 14, ordinal = 14;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:21:24:48.050;
+		allPassengers:                 MkdPassengers   explicitInverse, readonly, subId = 7, number = 18, ordinal = 18;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:11:02:14.337;
 		allPlanes:                     MkdPlanes   explicitInverse, readonly, subId = 4, number = 15, ordinal = 15;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:21:24:42.766;
 		allSeats:                      MkdSeats   explicitInverse, readonly, subId = 5, number = 16, ordinal = 16;
@@ -161,7 +163,7 @@ typeDefinitions
 		setModifiedTimeStamp "2019000224" "7.1.09" 2020:09:10:10:53:33.168;
 	referenceDefinitions
 		myFlightBookingApp:            FlightBookingApp   explicitEmbeddedInverse, protected, number = 4, ordinal = 4;
-		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:21:24:56.421;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:11:02:25.618;
  
 	jadeMethodDefinitions
 		checkAirportInCity(
@@ -251,8 +253,8 @@ typeDefinitions
 	(
 		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:06:21:00:17.630;
 	attributeDefinitions
-		password:                      String[31] number = 1, ordinal = 1;
-		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:15:19:25:02.577;
+		password:                      String[31] readonly, number = 1, ordinal = 1;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:11:10:53.242;
 	referenceDefinitions
 		myPerson:                      Person   explicitEmbeddedInverse, readonly, number = 2, ordinal = 2;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:27:42.529;
@@ -324,6 +326,8 @@ typeDefinitions
 		number:                        Integer protected, number = 1, ordinal = 3;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:20:42:41.039;
 	referenceDefinitions
+		myFlightBookingApp:            FlightBookingApp   explicitEmbeddedInverse, protected, number = 3, ordinal = 4;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:11:02:14.352;
 		myTicket:                      Ticket   explicitEmbeddedInverse, readonly, number = 2, ordinal = 2;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:17:26:08.440;
  
@@ -494,6 +498,10 @@ typeDefinitions
 		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:19:17:33:22.587;
 		modifyFlight() number = 1008;
 		setModifiedTimeStamp "2017011319" "7.1.09" 2020:10:14:19:30:46.801;
+		testDate() number = 1012;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:10:19:46.537;
+		testFlightBookingApp() number = 1013;
+		setModifiedTimeStamp "2019000224" "7.1.09" 2020:10:28:11:06:21.623;
 	)
 	WebSession completeDefinition
 	(
@@ -585,122 +593,122 @@ typeDefinitions
 	String completeDefinition
 	(
 	constantDefinitions
-		ARRIVED_STATUS:                String = "ARRIVED";
+		ARRIVED_STATUS:                String = "ARRIVED" number = 1001;
 	documentationText
 `Flight has arrived at its destination gate.`
 
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:54:41.731;
-		AUCKLAND_AIRPORT:              String = "AKL";
+		AUCKLAND_AIRPORT:              String = "AKL" number = 1002;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:15:59:17.785;
-		AUCKLAND_CITY:                 String = "AUCKLAND";
+		AUCKLAND_CITY:                 String = "AUCKLAND" number = 1003;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:16:55:20.479;
-		CANCELLED_STATUS:              String = "CANCELLED";
+		CANCELLED_STATUS:              String = "CANCELLED" number = 1004;
 	documentationText
 ` Flight has been cancelled.`
 
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:54:58.006;
-		DELAYED_STATUS:                String = "DELAYED";
+		DELAYED_STATUS:                String = "DELAYED" number = 1005;
 	documentationText
 `Flight will depart more than 15 minutes after its scheduled departure time.`
 
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:55:13.285;
-		DEPARTED_STATUS:               String = "DEPARTED";
+		DEPARTED_STATUS:               String = "DEPARTED" number = 1006;
 	documentationText
 `Flight has left the departure gate but may not be airborne yet.`
 
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:55:26.784;
-		DIVERTED_STATUS:               String = "DIVERTED";
+		DIVERTED_STATUS:               String = "DIVERTED" number = 1007;
 	documentationText
 `Flight has been diverted from its scheduled destination to a different location.`
 
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:55:41.329;
-		EXPECTED_STATUS:               String = "EXPECTED";
+		EXPECTED_STATUS:               String = "EXPECTED" number = 1008;
 	documentationText
 `FlightView data indicates flight is expected to arrive at arrival airport. An estimated arrival time may be available.`
 
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:55:54.043;
-		INVERCARGILL_AIRPORT:          String = "IVC";
+		INVERCARGILL_AIRPORT:          String = "IVC" number = 1009;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:15:59:03.092;
-		INVERCARGILL_CITY:             String = "INVERCARGILL";
+		INVERCARGILL_CITY:             String = "INVERCARGILL" number = 1010;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:16:55:44.102;
-		IN_AIR_STATUS:                 String = "IN AIR";
+		IN_AIR_STATUS:                 String = "IN AIR" number = 1011;
 	documentationText
 `Flight is airborne. Takeoff time is actual takeoff or "wheels up" time. The arrival time is estimated. Real-time map is available.`
 
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:56:20.036;
-		LANDED_STATUS:                 String = "LANDED";
+		LANDED_STATUS:                 String = "LANDED" number = 1012;
 	documentationText
 `Flight has landed. The landing time is actual touchdown or "wheels down."`
 
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:56:34.469;
-		NO_RECENT_INFO_CALL_AIRLINE:   String = "NO RECENT INFO - CALL AIRLINE";
+		NO_RECENT_INFO_CALL_AIRLINE:   String = "NO RECENT INFO - CALL AIRLINE" number = 1013;
 	documentationText
 `The real-time status of the flight is unavailable. It may have been delayed, cancelled, or the real-time status may not yet be available if the flight is international. Contact the airline for more information. `
 
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:53:54.201;
-		NO_TAKEOFF_INFO_CALL_AIRLINE:  String = "NO TAKEOFF INFO - CALL AIRLINE";
+		NO_TAKEOFF_INFO_CALL_AIRLINE:  String = "NO TAKEOFF INFO - CALL AIRLINE" number = 1014;
 	documentationText
 `The real-time takeoff status of the flight is unavailable. It may have been delayed, cancelled, or the real-time status may not yet be available if the flight is international. Contact the airline for more information. `
 
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:54:12.705;
-		PAST_FLIGHT_STATUS:            String = "PAST FLIGHT";
+		PAST_FLIGHT_STATUS:            String = "PAST FLIGHT" number = 1015;
 	documentationText
 `Flight was scheduled to operate sometime in the past.`
 
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:57:02.250;
-		PLANE_TAYPE_1:                 Integer = 1;
+		PLANE_TAYPE_1:                 Integer = 1 number = 1016;
 	documentationText
 `Airbus A321neo`
 
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:14:58:24.803;
-		PLANE_TYPE_2:                  Integer = 2;
+		PLANE_TYPE_2:                  Integer = 2 number = 1017;
 	documentationText
 `Airbus A320neo`
 
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:14:58:45.891;
-		PLANE_TYPE_3:                  Integer = 3;
+		PLANE_TYPE_3:                  Integer = 3 number = 1018;
 	documentationText
 `ATR 72 Twin-Engine Turboprop`
 
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:14:53:34.423;
-		PLANE_TYPE_4:                  Integer = 4;
+		PLANE_TYPE_4:                  Integer = 4 number = 1019;
 	documentationText
 `Boeing 777-300`
 
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:14:59:48.664;
-		PLANE_TYPE_5:                  Integer = 5;
+		PLANE_TYPE_5:                  Integer = 5 number = 1020;
 	documentationText
 `Boeing 777-200`
 
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:14:56:13.187;
-		PLANE_TYPE_6:                  Integer = 6;
+		PLANE_TYPE_6:                  Integer = 6 number = 1021;
 	documentationText
 `Boeing 787-9`
 
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:14:56:45.322;
-		PLANE_TYPE_7:                  Integer = 7;
+		PLANE_TYPE_7:                  Integer = 7 number = 1022;
 	documentationText
 `Boeing 787-9 V2`
 
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:14:59:29.612;
-		PLANE_TYPE_8:                  Integer = 8;
+		PLANE_TYPE_8:                  Integer = 8 number = 1023;
 	documentationText
 `Bombardier Q300`
 
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:14:57:51.489;
-		RECOVERY_STATUS:               String = "RECOVERY";
+		RECOVERY_STATUS:               String = "RECOVERY" number = 1024;
 	documentationText
 `Flight had departed the diverted location and enroute or landed at the scheduled destination.`
 
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:57:21.503;
-		SCHEDULED_STATUS:              String = "SCHEDULED";
+		SCHEDULED_STATUS:              String = "SCHEDULED" number = 1025;
 	documentationText
 `Flight is not airborne. Departure and arrival times are according to airline's schedule.`
 
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:25:13:57:39.436;
-		WELLINGTON_AIRPORT:            String = "WLG";
+		WELLINGTON_AIRPORT:            String = "WLG" number = 1026;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:15:58:35.901;
-		WELLINGTON_CITY:               String = "WELLINGTON";
+		WELLINGTON_CITY:               String = "WELLINGTON" number = 1027;
 		setModifiedTimeStamp "Trann" "7.1.03" 2020:10:24:16:56:04.702;
 	)
  
@@ -759,6 +767,7 @@ inverseDefinitions
 	allAirports of FlightBookingApp automatic peerOf myFlightBookingApp of Airport manual;
 	allFlightPaths of FlightBookingApp automatic peerOf myFlightBookingApp of FlightPath manual;
 	allFlights of FlightBookingApp automatic peerOf myFlightBookingApp of Flight manual;
+	allPassengers of FlightBookingApp automatic peerOf myFlightBookingApp of Passenger manual;
 	allPlanes of FlightBookingApp automatic peerOf myFlightBookingApp of Plane manual;
 	allSeats of FlightBookingApp automatic peerOf myFlightBookingApp of Seat manual;
 	allTickets of FlightBookingApp automatic peerOf myFlightBookingApp of Ticket manual;
@@ -1620,6 +1629,40 @@ begin
 	fl := Flight.lastInstance();
 	fl.myPlaneID := Plane.lastInstance();
 	commitTransaction;
+end;
+
+}
+
+testDate
+{
+testDate();
+
+vars
+	a, b, c: String;
+	
+begin
+	app.clearWriteWindow;
+	a := "25/7/2020";
+	b := "25 7 2020";
+	c := "25.7/2020";
+	write a.Date;
+	write b.Date;
+	write c.Date;
+	write a.asDate;
+	write b.asDate;
+	write c.asDate;
+end;
+
+}
+
+testFlightBookingApp
+{
+testFlightBookingApp();
+
+vars
+
+begin
+ //write app.FlightBookingApp.allFlights;
 end;
 
 }
